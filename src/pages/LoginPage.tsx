@@ -27,9 +27,9 @@ const LoginPage = () => {
         <div className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden bg-[#FFFAF5]">
 
             {/* 1. Left Panel (Login Form) - 45% */}
-            <div className="w-full md:w-[45%] flex flex-col justify-center p-8 md:p-12 lg:p-16 bg-[#FFFAF5] relative z-20 shadow-[20px_0_40px_-10px_rgba(0,0,0,0.1)]">
+            <div className="w-full md:w-[45%] flex flex-col justify-center pt-20 pb-12 md:py-12 lg:p-16 p-8 bg-[#FFFAF5] relative z-20 shadow-[20px_0_40px_-10px_rgba(0,0,0,0.1)]">
 
-                <div className="max-w-md w-full mx-auto mt-0 animate-fade-in-up -translate-y-8">
+                <div className="max-w-md w-full mx-auto mt-0 animate-fade-in-up md:-translate-y-8">
                     <div className="mb-10 text-center">
                         <Link to="/" className="inline-flex items-center gap-3 mb-10 group">
                             <div className="bg-white rounded-2xl p-2 shadow-sm border border-slate-100 transition-all duration-300 group-hover:scale-105">
@@ -94,7 +94,7 @@ const LoginPage = () => {
                     </form>
 
                     <div className="mt-6 text-center text-xs text-slate-500 font-medium">
-                        Not a customer? <Link to="/waitlist" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Join Waitlist <ArrowRight className="w-3 h-3 ml-1" /></Link>
+                        Not a customer? <Link to="/waitlist" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Join Waitlist</Link>
                     </div>
                 </div>
             </div>
