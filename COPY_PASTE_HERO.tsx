@@ -1,0 +1,231 @@
+// COMPLETE HERO COMPONENT - SCREENSHOT STUDIO STYLE FOR DUEBIT
+// Copy this entire file and replace your src/components/Hero.tsx
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
+
+interface HeroProps {
+    title: string;
+    subtitle?: string;
+    description: string;
+    ctaLabel?: string;
+    ctaHref?: string;
+    onCtaClick?: () => void;
+}
+
+export function Hero({
+    title,
+    subtitle,
+    description,
+    ctaLabel = "Get Started",
+    ctaHref = "/waitlist",
+    onCtaClick,
+}: HeroProps) {
+    const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+    return (
+        <main
+            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            role="banner"
+        >
+            {/* Shader Gradient Background - Duebit Colors */}
+            <div className="absolute inset-0 z-0">
+                <ShaderGradientCanvas
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                    }}
+                    pixelDensity={1}
+                    pointerEvents="none"
+                >
+                    <ShaderGradient
+                        animate="on"
+                        type="sphere"
+                        wireframe={false}
+                        shader="defaults"
+                        uTime={0}
+                        uSpeed={0.3}
+                        uStrength={0.3}
+                        uDensity={0.8}
+                        uFrequency={5.5}
+                        uAmplitude={3.2}
+                        positionX={-0.1}
+                        positionY={0}
+                        positionZ={0}
+                        rotationX={0}
+                        rotationY={130}
+                        rotationZ={70}
+                        color1="#8B0000"
+                        color2="#DC143C"
+                        color3="#4B0082"
+                        reflection={0.4}
+                        cAzimuthAngle={270}
+                        cPolarAngle={180}
+                        cDistance={0.5}
+                        cameraZoom={15.1}
+                        lightType="3d"
+                        brightness={0.6}
+                        envPreset="dawn"
+                        grain="on"
+                        toggleAxis={false}
+                        zoomOut={false}
+                        hoverState=""
+                        enableTransition={false}
+                    />
+                </ShaderGradientCanvas>
+            </div>
+
+            {/* Dark overlay for better text readability */}
+            <div
+                className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background"
+                aria-hidden="true"
+            />
+
+            {/* Content */}
+            <div className="relative z-10 max-w-5xl mx-auto text-center px-6 py-24 sm:py-32">
+                {/* Badge/Pill */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+                    <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                    <span className="text-sm text-foreground/90">
+                        The Future of Audit
+                    </span>
+                </div>
+
+                {/* Headline - Large and impactful with Instrument Serif */}
+                <h1
+                    className="text-[44px] sm:text-[60px] md:text-[80px] lg:text-[96px] font-normal tracking-tight leading-[1.05]"
+                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                >
+                    {title}
+                    {subtitle && (
+                        <>
+                            <br />
+                            <span className="bg-gradient-to-r from-red-600 via-red-500 to-purple-600 bg-clip-text text-transparent">
+                                {subtitle}
+                            </span>
+                        </>
+                    )}
+                </h1>
+
+                {/* Description */}
+                <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+                    {description}
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    {onCtaClick ? (
+                        <Button
+                            size="lg"
+                            onClick={onCtaClick}
+                            className="text-base sm:text-lg px-10 py-6 min-h-[56px] font-medium bg-red-600 text-white hover:bg-red-700 rounded-full shadow-lg shadow-red-600/25 hover:shadow-red-600/40 transition-all duration-300"
+                        >
+                            {ctaLabel}
+                        </Button>
+                    ) : (
+                        <Link to={ctaHref}>
+                            <Button
+                                size="lg"
+                                className="text-base sm:text-lg px-10 py-6 min-h-[56px] font-medium bg-red-600 text-white hover:bg-red-700 rounded-full shadow-lg shadow-red-600/25 hover:shadow-red-600/40 transition-all duration-300"
+                            >
+                                {ctaLabel}
+                            </Button>
+                        </Link>
+                    )}
+                    <button
+                        onClick={() => setIsVideoOpen(true)}
+                        className="text-foreground/70 hover:text-foreground transition-colors text-sm flex items-center gap-3 group px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10"
+                        aria-label="Watch demo video"
+                    >
+                        <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-red-600/20 group-hover:text-red-600 transition-all duration-300">
+                            <svg
+                                className="w-4 h-4 ml-0.5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                            >
+                                <path d="M6.5 5.5v9l7-4.5-7-4.5z" />
+                            </svg>
+                        </span>
+                        <span className="group-hover:text-red-600 transition-colors">
+                            Watch demo
+                        </span>
+                    </button>
+                </div>
+
+                {/* Trust indicators */}
+                <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-foreground/50">
+                    <div className="flex items-center gap-2">
+                        <svg
+                            className="w-4 h-4 text-red-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                        <span>Zero friction</span>
+                    </div>
+                    <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/30" />
+                    <div className="flex items-center gap-2">
+                        <svg
+                            className="w-4 h-4 text-red-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                        <span>100% compliance</span>
+                    </div>
+                    <div className="hidden sm:block w-1 h-1 rounded-full bg-foreground/30" />
+                    <div className="flex items-center gap-2">
+                        <svg
+                            className="w-4 h-4 text-red-600"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                        <span>Built for firms</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom fade to next section */}
+            <div
+                className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[2]"
+                aria-hidden="true"
+            />
+
+            {/* Video Dialog - Optional, you can remove if not needed */}
+            {isVideoOpen && (
+                <div
+                    className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+                    onClick={() => setIsVideoOpen(false)}
+                >
+                    <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden">
+                        <iframe
+                            src="https://www.youtube.com/embed/zDux_K4SsH0?autoplay=1"
+                            className="w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
+                </div>
+            )}
+        </main>
+    );
+}

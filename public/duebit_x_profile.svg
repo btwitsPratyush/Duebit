@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- X/Twitter Profile Picture - Red Paper Plane (Full Bleed) -->
+  
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" />
+      <stop offset="100%" stop-color="#B91C1C" />
+    </linearGradient>
+    
+    <filter id="innerShadow">
+      <feOffset dx="0" dy="1" />
+      <feGaussianBlur stdDeviation="1" result="offset-blur" />
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+      <feFlood flood-color="black" flood-opacity="0.2" result="color" />
+      <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+      <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+    </filter>
+  </defs>
+
+  <!-- FULL BLEED BACKGROUND -->
+  <rect width="100" height="100" fill="url(#primaryGrad)" />
+  
+  <!-- CENTERED ICON -->
+  <g transform="translate(22, 22) scale(0.56)">
+     <path d="M30 65 L 75 50 L 30 35 L 40 50 Z" 
+        fill="#FFFFFF" filter="url(#innerShadow)" />
+      <path d="M40 50 L 30 65 L 55 58 Z" fill="#FCA5A5" opacity="0.9" />
+  </g>
+
+</svg>

@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-script {
+    font-family: 'Pinyon Script', cursive;
+    /* Optional: Improve rendering for script fonts */
+    font-feature-settings: "kern", "liga";
+  }
+}
+
+@layer base {
+
+  /* Light Theme (default) */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Brand Deep Red (Matches Login Page) */
+    --primary: 0 72% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 72% 96%;
+    --accent-foreground: 0 72% 42%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 72% 42%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 0 72% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 72% 96%;
+    --sidebar-accent-foreground: 0 72% 42%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 72% 42%;
+
+    /* Custom tokens */
+    --glow-primary: 0 72% 42%;
+    --glow-accent: 0 72% 60%;
+    --surface-glass: 0 0% 0% / 0.03;
+
+    /* Brand premium deep red */
+    --brand-deep: #1a0505;
+    --brand-deep-mid: #2a0a0a;
+    --brand-deep-dark: #000000;
+
+    /* Aurora Colors - Deep Red Spectrum */
+    --aurora-1: 0 72% 42%;
+    --aurora-2: 0 84% 60%;
+    --aurora-3: 0 72% 30%;
+  }
+
+  /* Dark Theme */
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 83%;
+
+    /* Custom tokens */
+    --glow-primary: 0 0% 98%;
+    --glow-accent: 0 0% 60%;
+    --surface-glass: 0 0% 100% / 0.04;
+
+    /* Aurora Colors - Dark Monochromatic */
+    --aurora-1: 0 0% 20%;
+    --aurora-2: 0 0% 30%;
+    --aurora-3: 0 0% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Aurora background */
+@keyframes aurora {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translate(100px, -50px) rotate(45deg) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-50px, 100px) rotate(90deg) scale(0.9);
+  }
+
+  75% {
+    transform: translate(50px, 50px) rotate(135deg) scale(1.05);
+  }
+}
+
+@keyframes aurora2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  33% {
+    transform: translate(-80px, 60px) rotate(-60deg) scale(1.15);
+  }
+
+  66% {
+    transform: translate(60px, -80px) rotate(60deg) scale(0.85);
+  }
+}
+
+/* Hero 3D Aurora (Lance-style) */
+@keyframes aurora-hero {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+
+  25% {
+    transform: translate(5%, -8%) scale(1.08);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(-6%, 5%) scale(0.95);
+    opacity: 0.35;
+  }
+
+  75% {
+    transform: translate(4%, 3%) scale(1.05);
+    opacity: 0.45;
+  }
+}
+
+@keyframes aurora-hero-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  33% {
+    transform: translate(-8%, 4%) scale(1.1);
+    opacity: 0.4;
+  }
+
+  66% {
+    transform: translate(6%, -6%) scale(0.9);
+    opacity: 0.25;
+  }
+}
+
+@keyframes aurora-hero-3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translate(-4%, -5%);
+    opacity: 0.35;
+  }
+}
+
+.animate-aurora-hero {
+  animation: aurora-hero 22s ease-in-out infinite;
+}
+
+.animate-aurora-hero-2 {
+  animation: aurora-hero-2 28s ease-in-out infinite;
+}
+
+.animate-aurora-hero-3 {
+  animation: aurora-hero-3 25s ease-in-out infinite;
+}
+
+/* Hero classy red-tinted background */
+@keyframes hero-glow-drift {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(4%, -3%) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-3%, 2%) scale(0.98);
+  }
+}
+
+@keyframes hero-glow-drift-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-5%, 4%) scale(1.08);
+  }
+}
+
+@keyframes hero-glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+.animate-hero-glow-drift {
+  animation: hero-glow-drift 18s ease-in-out infinite;
+}
+
+.animate-hero-glow-drift-2 {
+  animation: hero-glow-drift-2 22s ease-in-out infinite;
+}
+
+.animate-hero-glow-pulse {
+  animation: hero-glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes particle-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.45s forwards;
+  opacity: 0;
+}
+
+/* Hero Duebit gradient (replaces @shadergradient/react for React 18 compatibility) */
+@keyframes hero-duebit-shift {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.hero-duebit-gradient {
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, #8B0000 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 70% 30%, #DC143C 0%, transparent 45%),
+    radial-gradient(ellipse 70% 50% at 30% 60%, #4B0082 0%, transparent 45%),
+    linear-gradient(180deg, #1a0505 0%, #0d0202 100%);
+  animation: hero-duebit-shift 12s ease-in-out infinite;
+}
+
+.glass-card {
+  background: hsl(var(--surface-glass));
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(var(--border));
+}
+
+.glass-card-hover:hover {
+  background: hsl(0 0% 0% / 0.05);
+  border-color: hsl(var(--border));
+}
+
+.dark .glass-card-hover:hover {
+  background: hsl(0 0% 100% / 0.07);
+  border-color: hsl(0 0% 100% / 0.1);
+}
+
+.glow-red {
+  box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.15),
+    0 0 80px hsl(var(--glow-primary) / 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(353 72% 50%), hsl(220 20% 20%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, hsl(var(--glow-primary)), hsl(353 72% 65%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes spinY {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.animate-spin-y {
+  animation: spinY 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* --- Aditya Sur's Paper Button Effect --- */
+@keyframes prismatic-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-paper {
+  position: relative;
+  background: white !important;
+  color: #111 !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 12px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-paper::before {
+  content: "";
+  position: absolute;
+  inset: -1.2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg,
+      #ff0000, #00ff00, #0000ff, #ff00ff, #ff0000);
+  background-size: 300% 300%;
+  animation: prismatic-glow 4s linear infinite;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 1.2px;
+  opacity: 0.8;
+}
+
+.btn-paper:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btn-paper:hover::before {
+  opacity: 1;
+  filter: blur(0.5px);
+}
