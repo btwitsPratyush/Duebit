@@ -183,7 +183,7 @@ const Footer = () => {
 
           {/* DUEBIT wordmark - jahan tha wahi, red tint */}
           <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none">
-            <span className="block text-[10rem] sm:text-[14rem] md:text-[18rem] font-bold text-red-600/[0.05] leading-none text-center font-display tracking-tighter translate-y-[30%]">
+            <span className="block text-[16vw] sm:text-[14rem] md:text-[18rem] font-bold text-red-600/[0.05] leading-none text-center font-display tracking-tighter translate-y-[10%] sm:translate-y-[30%]">
               DUEBIT
             </span>
           </div>
