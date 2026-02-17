@@ -27,7 +27,7 @@ const LoginPage = () => {
         <div className="w-full min-h-screen flex flex-col md:flex-row overflow-hidden bg-[#FFFAF5]">
 
             {/* 1. Left Panel (Login Form) - 45% */}
-            <div className="w-full md:w-[45%] flex flex-col justify-center pt-20 pb-12 md:py-12 lg:p-16 p-8 bg-[#FFFAF5] relative z-20 shadow-[20px_0_40px_-10px_rgba(0,0,0,0.1)]">
+            <div className="w-full md:w-[45%] flex flex-col justify-center pt-32 pb-12 md:py-12 lg:p-16 p-8 bg-[#FFFAF5] relative z-20 shadow-[20px_0_40px_-10px_rgba(0,0,0,0.1)]">
 
                 <div className="max-w-md w-full mx-auto mt-0 animate-fade-in-up md:-translate-y-8">
                     <div className="mb-10 text-center">

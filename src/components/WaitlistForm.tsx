@@ -113,7 +113,7 @@ const WaitlistForm = () => {
 
               <Button
                 type="submit"
-                className="w-full h-12 text-lg font-medium mt-6 shadow-[0_0_20px_-5px_rgba(239,68,68,0.4)] hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.6)] transition-all duration-300"
+                className="btn-paper w-full h-12 text-lg font-medium mt-6 shadow-[0_0_20px_-5px_rgba(239,68,68,0.4)] hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.6)] transition-all duration-300"
                 disabled={loading}
               >
                 {loading ? (
