@@ -139,9 +139,7 @@ const FeaturesGrid = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#9b2c2c]/20 to-transparent" />
 
               <div className="mb-8 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-100 px-3 py-1 rounded-full">
-                  Live Workflow Preview
-                </span>
+                <div />
                 <div className="flex gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-slate-200" />
                   <div className="w-2 h-2 rounded-full bg-slate-200" />

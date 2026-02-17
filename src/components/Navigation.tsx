@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Logo from "@/components/Logo";
 
 export interface NavigationProps {
@@ -105,16 +106,19 @@ export function Navigation({
                 <div className="flex items-center gap-3">
                     <Link
                         to="/login"
-                        className={`hidden sm:inline-block text-sm font-medium transition-colors duration-300 px-6 py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
+                        className={`inline-block text-sm font-medium transition-colors duration-300 px-6 py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
                     >
                         Log in
                     </Link>
 
                     <Button
                         asChild
-                        className="btn-paper px-6 py-2 h-auto text-sm"
+                        className="btn-paper px-6 py-2 h-auto text-sm group"
                     >
-                        <Link to={ctaHref}>{ctaLabel}</Link>
+                        <Link to={ctaHref}>
+                            {ctaLabel}
+                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
                     </Button>
                 </div>
             </motion.div>

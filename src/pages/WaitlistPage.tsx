@@ -101,7 +101,7 @@ const WaitlistPage = () => {
             <div className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
 
             {/* Back Button */}
-            <Link to="/" className="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors z-20 group">
+            <Link to="/" className="hidden sm:flex absolute top-8 left-8 items-center gap-2 text-slate-400 hover:text-white transition-colors z-20 group">
                 <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
                 </div>
@@ -116,9 +116,9 @@ const WaitlistPage = () => {
                     variants={containerVariants}
                 >
                     {/* Header */}
-                    <div className="text-center mb-10 relative">
+                    <div className="text-center mb-6 sm:mb-10 relative">
                         <motion.div variants={itemVariants}>
-                            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-display relative inline-block">
+                            <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 sm:mb-6 font-display relative inline-block">
                                 Get early access to <br />
                                 <span className="text-[#9b2c2c]">Duebit</span>
                                 {/* Tiny floating particles around heading */}
@@ -130,16 +130,16 @@ const WaitlistPage = () => {
                             </h1>
                         </motion.div>
 
-                        <motion.p variants={itemVariants} className="text-lg text-slate-300/80 leading-relaxed max-w-md mx-auto font-light">
+                        <motion.p variants={itemVariants} className="text-base sm:text-lg text-slate-300/80 leading-relaxed max-w-xs sm:max-w-md mx-auto font-light">
                             Join the <span className="text-white font-medium">first 100 firms</span> automating compliance.
                         </motion.p>
 
-                        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mt-8">
-                            <div className="h-px w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b2c2c]/90 drop-shadow-sm flex items-center gap-1.5">
+                        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mt-6 sm:mt-8">
+                            <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                            <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b2c2c]/90 drop-shadow-sm flex items-center gap-1.5">
                                 <Sparkles className="w-3 h-3" /> Priority Access
                             </p>
-                            <div className="h-px w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                            <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                         </motion.div>
                     </div>
 
@@ -148,7 +148,7 @@ const WaitlistPage = () => {
                         variants={itemVariants}
                         whileHover={{ y: -5 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="rounded-3xl p-8 sm:p-10 shadow-2xl border border-white/10 bg-black/40 backdrop-blur-xl relative overflow-hidden group/card"
+                        className="rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/10 bg-black/40 backdrop-blur-xl relative overflow-hidden group/card"
                     >
                         {/* Card Glow Border */}
                         <div className="absolute inset-0 rounded-3xl border border-[#9b2c2c]/0 group-hover/card:border-[#9b2c2c]/20 transition-colors duration-500 pointer-events-none" />
@@ -257,10 +257,10 @@ const WaitlistPage = () => {
                                     </div>
 
                                     {/* 5. CTA Button Upgrade */}
-                                    <motion.div variants={itemVariants} className="pt-4">
+                                    <motion.div variants={itemVariants} className="pt-2 sm:pt-4">
                                         <Button
                                             type="submit"
-                                            className="group relative w-full h-14 text-lg btn-paper rounded-xl overflow-hidden transition-all duration-300"
+                                            className="group relative w-full h-14 text-base sm:text-lg btn-paper rounded-full overflow-hidden transition-all duration-300"
                                             disabled={loading}
                                         >
                                             <span className="relative z-10 flex items-center justify-center gap-2">
