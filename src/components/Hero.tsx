@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, MessageSquare, FileCheck, ShieldCheck } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import HeroBackground from "./HeroBackground";
 
 export interface HeroProps {
@@ -19,8 +19,12 @@ export function Hero({
     description,
     ctaLabel = "Join Waitlist",
     ctaHref = "/waitlist",
-    onCtaClick,
 }: HeroProps) {
+    const { scrollY } = useScroll();
+    const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+    const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
     return (
         <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-40 pb-20 overflow-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000]">
             {/* Premium R3F Background */}
@@ -31,6 +35,35 @@ export function Hero({
                 className="absolute inset-0 z-[1] bg-gradient-to-b from-black/30 via-black/20 to-black/40"
                 aria-hidden="true"
             />
+
+            {/* Floating Elements for "Coolness" */}
+            <motion.div
+                style={{ y: y1, opacity }}
+                className="absolute top-[20%] left-[10%] z-[5] hidden lg:block"
+            >
+                <div className="bg-green-500/10 backdrop-blur-xl border border-green-500/20 p-4 rounded-2xl rotate-[-12deg] shadow-2xl">
+                    <MessageSquare className="w-8 h-8 text-green-500" />
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-600 rounded-full border-2 border-white animate-bounce" />
+                </div>
+            </motion.div>
+
+            <motion.div
+                style={{ y: y2, opacity }}
+                className="absolute bottom-[25%] right-[12%] z-[5] hidden lg:block"
+            >
+                <div className="bg-red-500/10 backdrop-blur-xl border border-red-500/20 p-5 rounded-2xl rotate-[15deg] shadow-2xl">
+                    <FileCheck className="w-10 h-10 text-red-600" />
+                </div>
+            </motion.div>
+
+            <motion.div
+                style={{ y: y1, opacity }}
+                className="absolute top-[35%] right-[15%] z-[5] hidden lg:block"
+            >
+                <div className="bg-blue-500/10 backdrop-blur-xl border border-blue-500/20 p-3 rounded-xl rotate-[10deg] shadow-xl">
+                    <ShieldCheck className="w-6 h-6 text-blue-400" />
+                </div>
+            </motion.div>
 
             <div className="container relative z-10 px-6 mx-auto flex flex-col items-center text-center max-w-4xl">
                 {/* Status badge */}
