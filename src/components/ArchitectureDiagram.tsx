@@ -17,9 +17,11 @@ const tooltips: Record<string, string> = {
     "webhook": "Receives and processes every incoming event in real time.",
     "queue": "Redis + BullMQ for reliable async job processing and retries.",
     "scheduler": "Cron-based reminders that loop until all docs are received.",
+    "email-service": "Reliable delivery via SendGrid or AWS SES for official correspondence.",
     "storage": "S3-compatible encrypted storage for all uploaded documents.",
     "database": "Postgres database tracking jobs, clients, and checklist state.",
     "zip-gen": "Generates audit-ready ZIP exports with full activity logs.",
+    "client-email": "Client receives formal follow-ups and submission confirmations in their inbox.",
 };
 
 /* ───── Node Component ───── */
@@ -115,6 +117,12 @@ const JobIcon = () => <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 text-[#9b2
 const CheckIcon = () => <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 text-[#9b2c2c]" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="12" height="12" rx="2" /><path d="M5 8l2 2 4-4" /></svg>;
 const ClockIcon = () => <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 text-[#9b2c2c]" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="8" cy="8" r="6" /><path d="M8 4v4l3 2" /></svg>;
 const LogIcon = () => <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 text-[#9b2c2c]" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2z" /><line x1="5" y1="6" x2="11" y2="6" /><line x1="5" y1="9" x2="11" y2="9" /><line x1="5" y1="12" x2="8" y2="12" /></svg>;
+const MailIcon = () => (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-blue-500 fill-none stroke-current" strokeWidth="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+        <polyline points="22,6 12,13 2,6" />
+    </svg>
+);
 
 /* ── Specific infra icons ── */
 const WAApiIcon = () => (
@@ -172,6 +180,9 @@ const ConnectionsSVG = () => {
                 <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
                     <path d="M0,0 L8,4 L0,8 Z" fill="#d97706" opacity="0.4" />
                 </marker>
+                <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                    <path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" opacity="0.4" />
+                </marker>
             </defs>
 
             {inView && (
@@ -206,6 +217,16 @@ const ConnectionsSVG = () => {
                     {/* ── FLOW 5: Completion: Engine → ZIP → Dashboard ── */}
                     <path id="path-zip" d="M500,330 C450,400 400,500 700,580" fill="none" stroke="#d97706" strokeWidth="1" strokeDasharray="4 4" opacity="0.15" markerEnd="url(#arrowGold)" />
                     <FlowDotGlow pathId="path-zip" color="#d97706" duration={5} delay={4} />
+
+                    {/* ── FLOW 6: Email Automation Reminders ── */}
+                    <path id="path-rem-queue" d="M180,580 C300,580 400,540 450,540" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" opacity="0.15" markerEnd="url(#arrowBlue)" />
+                    <FlowDotGlow pathId="path-rem-queue" color="#3b82f6" duration={3} delay={0} />
+
+                    <path id="path-queue-email" d="M480,540 C550,580 600,600 650,600" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" opacity="0.15" markerEnd="url(#arrowBlue)" />
+                    <FlowDotGlow pathId="path-queue-email" color="#3b82f6" duration={3} delay={1.5} />
+
+                    <path id="path-email-inbox" d="M680,600 C750,550 800,450 850,450" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.2" markerEnd="url(#arrowBlue)" />
+                    <FlowDotGlow pathId="path-email-inbox" color="#3b82f6" duration={4} delay={3} />
                 </g>
             )}
         </svg>
@@ -265,10 +286,22 @@ export const ArchitectureDiagram = () => {
                             <NodeCard id="wa-api" title="WhatsApp API" variant="infra" icon={<WAApiIcon />} delay={0.7} tooltipPos="top" />
                             <NodeCard id="webhook" title="Webhook Listener" variant="infra" icon={<WebhookIcon />} delay={0.8} tooltipPos="top" />
                             <NodeCard id="queue" title="Queue Worker" variant="infra" icon={<QueueIcon />} delay={0.9} tooltipPos="top" />
-                            <NodeCard id="scheduler" title="Reminder Scheduler" variant="infra" icon={<SchedulerIcon />} delay={1.0} tooltipPos="top" />
-                            <NodeCard id="storage" title="Secure Storage (S3)" variant="infra" icon={<StorageIcon />} delay={1.1} tooltipPos="bottom" />
-                            <NodeCard id="database" title="Database (Postgres)" variant="infra" icon={<DBIcon />} delay={1.2} tooltipPos="bottom" />
-                            <NodeCard id="zip-gen" title="ZIP Export Generator" variant="infra" icon={<ZipIcon />} delay={1.3} tooltipPos="bottom" />
+                            <div className="relative group">
+                                <NodeCard id="scheduler" title="Reminder Scheduler" variant="infra" icon={<SchedulerIcon />} delay={1.0} tooltipPos="top" />
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 1.5 }}
+                                    className="absolute -top-3 -right-4 bg-blue-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-lg whitespace-nowrap z-20 pointer-events-none border border-white/20"
+                                >
+                                    Multi-channel follow-ups (WhatsApp + Email)
+                                </motion.div>
+                            </div>
+                            <NodeCard id="email-service" title="Email Service (SendGrid/AWS)" variant="infra" icon={<MailIcon />} delay={1.1} tooltipPos="top" />
+                            <NodeCard id="storage" title="Secure Storage (S3)" variant="infra" icon={<StorageIcon />} delay={1.2} tooltipPos="bottom" />
+                            <NodeCard id="database" title="Database (Postgres)" variant="infra" icon={<DBIcon />} delay={1.3} tooltipPos="bottom" />
+                            <NodeCard id="zip-gen" title="ZIP Export Generator" variant="infra" icon={<ZipIcon />} delay={1.4} tooltipPos="bottom" />
                         </div>
                     </div>
                 </div>
@@ -282,6 +315,12 @@ export const ArchitectureDiagram = () => {
                     <NodeCard id="wa-replies" title="Client Replies" variant="client" delay={0.3} />
                     <NodeCard id="wa-uploads" title="Document Uploads" variant="client" delay={0.4} />
                     <NodeCard id="wa-status" title="Pending Docs Status" variant="client" delay={0.5} />
+                    <div className="mt-4 pt-4 border-t border-slate-100">
+                        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-[10px] font-bold text-blue-500/60 uppercase tracking-[0.2em] mb-2 border-l-2 border-blue-500/20 pl-3">
+                            Fallback Channel
+                        </motion.div>
+                        <NodeCard id="client-email" title="Client Email Inbox" variant="client" icon={<MailIcon />} delay={0.6} />
+                    </div>
                 </div>
             </div>
 
