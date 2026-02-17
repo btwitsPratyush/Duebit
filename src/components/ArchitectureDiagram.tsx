@@ -255,10 +255,10 @@ export const ArchitectureDiagram = () => {
                 {/* ── LEFT: FIRM SIDE ── */}
                 <div className="flex flex-col gap-3">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-[10px] font-bold text-[#9b2c2c]/60 uppercase tracking-[0.2em] mb-2 border-l-2 border-[#9b2c2c]/20 pl-3">
-                        Firm Side
+                        FIRM SIDE
                     </motion.div>
-                    <NodeCard id="dashboard" title="CA Firm Dashboard" variant="firm" icon={<DashIcon />} delay={0.1} />
-                    <NodeCard id="job-creator" title="Job Creator (GST/ITR/Audit)" variant="firm" icon={<JobIcon />} delay={0.2} />
+                    <NodeCard id="dashboard" title="Firm Dashboard" subtitle="CA • Tax • Legal" variant="firm" icon={<DashIcon />} delay={0.1} />
+                    <NodeCard id="job-creator" title="Job Creator (GST/ITR/Audit/Legal)" variant="firm" icon={<JobIcon />} delay={0.2} />
                     <NodeCard id="checklists" title="Checklist Templates" variant="firm" icon={<CheckIcon />} delay={0.3} />
                     <NodeCard id="deadline" title="Deadline Tracker" variant="firm" icon={<ClockIcon />} delay={0.4} />
                     <NodeCard id="activity-log" title="Activity Log Viewer" variant="firm" icon={<LogIcon />} delay={0.5} />

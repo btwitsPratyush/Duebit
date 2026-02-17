@@ -4,7 +4,7 @@ import { ArchitectureDiagram } from "./ArchitectureDiagram";
 import { motion } from "framer-motion";
 
 const steps = [
-  { id: 1, text: "CA/Law Firm creates a job (GST / ITR / Audit)" },
+  { id: 1, text: "Firm creates a job (GST / ITR / Audit / Legal)" },
   { id: 2, text: "Duebit assigns checklist template automatically" },
   { id: 3, text: "WhatsApp message is sent to client instantly" },
   { id: 4, text: "Client uploads docs directly on WhatsApp" },
