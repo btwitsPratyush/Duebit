@@ -87,13 +87,12 @@ export function Hero({
                     className="flex flex-wrap items-center justify-center gap-4 mb-16"
                 >
                     <Button
-                        size="lg"
-                        className="btn-paper h-14 px-10 rounded-full text-base"
+                        size="xl"
+                        className="btn-paper h-16 px-10 text-lg rounded-full"
                         asChild
                     >
-                        <Link to={ctaHref}>
-                            {ctaLabel}
-                            <ArrowRight className="ml-2 w-5 h-5" />
+                        <Link to="/waitlist">
+                            Join Waitlist
                         </Link>
                     </Button>
                 </motion.div>

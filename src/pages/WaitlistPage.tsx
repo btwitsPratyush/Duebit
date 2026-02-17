@@ -272,7 +272,6 @@ const WaitlistPage = () => {
                                                 ) : (
                                                     <>
                                                         Join Waitlist
-                                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                                     </>
                                                 )}
                                             </span>

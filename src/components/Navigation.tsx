@@ -80,11 +80,11 @@ export function Navigation({
                     opacity: visible ? 1 : 0
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className={`flex items-center justify-between w-full max-w-5xl gap-4 sm:gap-8 px-6 py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
+                className={`flex items-center justify-between w-full max-w-5xl gap-2 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
             >
                 {/* Left: Branding */}
-                <Link to="/" className="flex items-center gap-3 group shrink-0" aria-label="Duebit home">
-                    <span className={`font-display font-bold text-xl tracking-tight transition-colors duration-300 ${textColor}`}>
+                <Link to="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
+                    <span className={`font-display font-bold text-lg sm:text-xl tracking-tight transition-colors duration-300 ${textColor}`}>
                         Duebit
                     </span>
                 </Link>
@@ -103,21 +103,20 @@ export function Navigation({
                 </div>
 
                 {/* Right: Actions */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 sm:gap-3">
                     <Link
                         to="/login"
-                        className={`inline-block text-sm font-medium transition-colors duration-300 px-6 py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
+                        className={`inline-block text-[11px] sm:text-sm font-medium transition-colors duration-300 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
                     >
                         Log in
                     </Link>
 
                     <Button
                         asChild
-                        className="btn-paper px-6 py-2 h-auto text-sm group"
+                        className="btn-paper px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
                     >
                         <Link to={ctaHref}>
                             {ctaLabel}
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                     </Button>
                 </div>

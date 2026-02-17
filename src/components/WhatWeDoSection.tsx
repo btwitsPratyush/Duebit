@@ -94,15 +94,6 @@ const WhatWeDoSection = () => {
                 </div>
               ))}
             </div>
-
-            <Button
-              size="lg"
-              className="btn-paper w-fit h-14 px-8 rounded-full shadow-xl shadow-red-900/10 transition-all"
-              onClick={() => document.getElementById('final-cta-section')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              See Live Workflow
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
           </motion.div>
         </div>
 
