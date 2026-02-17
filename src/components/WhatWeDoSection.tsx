@@ -40,7 +40,7 @@ const WhatWeDoSection = () => {
             <span className="text-primary">firm on autopilot.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-            A WhatsApp-first workflow engine that automates document collection, reminders, tracking, and audit-ready exports — without clients installing anything.
+            A WhatsApp-first workflow engine that automates document collection, reminders, tracking, and audit-ready exports, without clients installing anything.
           </p>
         </motion.div>
 
