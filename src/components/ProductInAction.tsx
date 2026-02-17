@@ -107,7 +107,7 @@ const ProductInAction = () => {
               </p>
               <div className="flex flex-col items-center group/email">
                 <p className="text-[9px] font-bold text-slate-500 whitespace-nowrap bg-slate-100 px-3 py-1 rounded-full border border-slate-200 shadow-sm flex items-center gap-1.5 transition-all hover:bg-slate-200">
-                  <span className="text-[10px]">📩</span> Email reminders (fallback)
+                  <span className="text-[10px]"></span> Email reminders (fallback)
                 </p>
                 <div className="absolute top-full mt-1 opacity-0 group-hover/email:opacity-100 transition-opacity pointer-events-none">
                   <p className="text-[7px] font-bold text-slate-400 uppercase tracking-tighter bg-white px-2 py-0.5 rounded border border-slate-100 whitespace-nowrap">

@@ -30,11 +30,12 @@ interface NodeCardProps {
     title: string;
     variant: "firm" | "client" | "engine" | "infra";
     icon?: React.ReactNode;
+    subtitle?: string;
     delay?: number;
     tooltipPos?: "top" | "bottom";
 }
 
-const NodeCard = ({ id, title, variant, icon, delay = 0, tooltipPos }: NodeCardProps) => {
+const NodeCard = ({ id, title, variant, icon, subtitle, delay = 0, tooltipPos }: NodeCardProps) => {
     const [hovered, setHovered] = useState(false);
     const tooltip = tooltips[id];
 
@@ -59,7 +60,10 @@ const NodeCard = ({ id, title, variant, icon, delay = 0, tooltipPos }: NodeCardP
         >
             <div className="flex items-center gap-2">
                 {icon}
-                <span className={variant === "infra" ? "text-[10px] uppercase tracking-wider" : "text-xs"}>{title}</span>
+                <div className="flex flex-col">
+                    <span className={variant === "infra" ? "text-[10px] uppercase tracking-wider" : "text-xs"}>{title}</span>
+                    {subtitle && <span className="text-[8px] font-medium opacity-60 mt-0.5 leading-none">{subtitle}</span>}
+                </div>
             </div>
 
             {/* Floating tooltip for infra (top/bottom) */}
@@ -286,18 +290,15 @@ export const ArchitectureDiagram = () => {
                             <NodeCard id="wa-api" title="WhatsApp API" variant="infra" icon={<WAApiIcon />} delay={0.7} tooltipPos="top" />
                             <NodeCard id="webhook" title="Webhook Listener" variant="infra" icon={<WebhookIcon />} delay={0.8} tooltipPos="top" />
                             <NodeCard id="queue" title="Queue Worker" variant="infra" icon={<QueueIcon />} delay={0.9} tooltipPos="top" />
-                            <div className="relative group">
-                                <NodeCard id="scheduler" title="Reminder Scheduler" variant="infra" icon={<SchedulerIcon />} delay={1.0} tooltipPos="top" />
-                                <motion.div
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 1.5 }}
-                                    className="absolute -top-3 -right-4 bg-blue-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-lg whitespace-nowrap z-20 pointer-events-none border border-white/20"
-                                >
-                                    Multi-channel follow-ups (WhatsApp + Email)
-                                </motion.div>
-                            </div>
+                            <NodeCard
+                                id="scheduler"
+                                title="Reminder Scheduler"
+                                subtitle="WhatsApp + Email follow-ups"
+                                variant="infra"
+                                icon={<SchedulerIcon />}
+                                delay={1.0}
+                                tooltipPos="top"
+                            />
                             <NodeCard id="email-service" title="Email Service (SendGrid/AWS)" variant="infra" icon={<MailIcon />} delay={1.1} tooltipPos="top" />
                             <NodeCard id="storage" title="Secure Storage (S3)" variant="infra" icon={<StorageIcon />} delay={1.2} tooltipPos="bottom" />
                             <NodeCard id="database" title="Database (Postgres)" variant="infra" icon={<DBIcon />} delay={1.3} tooltipPos="bottom" />
