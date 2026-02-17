@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import AuroraBackground from "@/components/AuroraBackground";
+import { toast } from "sonner";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -16,11 +17,10 @@ const LoginPage = () => {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
-            window.location.href = "/app/dashboard";
-        }, 1500);
+        toast.info("Preparing for takeoff. Public logins are currently disabled. 🚀", {
+            description: "See you on the waitlist!",
+            duration: 4000,
+        });
     };
 
     return (
