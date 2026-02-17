@@ -176,7 +176,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-6">
               <p className="text-sm text-white/60 flex items-center gap-1.5">
-                Made and Crafted in India
+                Made and crafted in India
               </p>
             </div>
           </div>

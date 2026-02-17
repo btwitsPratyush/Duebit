@@ -34,7 +34,6 @@ export function Hero({
 
             <div className="container relative z-10 px-6 mx-auto flex flex-col items-center text-center max-w-4xl">
                 {/* Status badge */}
-                {/* Status badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -120,8 +119,6 @@ export function Hero({
                     </span>
                 </motion.div>
             </div>
-
-            {/* Bottom transition removed as per user request */}
         </section>
     );
 }
