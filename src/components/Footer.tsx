@@ -136,13 +136,10 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <div className="group flex items-center gap-2 text-white/30 cursor-not-allowed text-sm">
+                    <a href="https://www.linkedin.com/company/tryduebit/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
                       <Linkedin className="w-4 h-4" />
                       <span>LinkedIn</span>
-                      <span className="ml-1 px-1.5 py-0.5 bg-black text-white text-[8px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity border border-white/10">
-                        Coming Soon
-                      </span>
-                    </div>
+                    </a>
                   </li>
                   <li>
                     <div className="group flex items-center gap-2 text-white/30 cursor-not-allowed text-sm">
