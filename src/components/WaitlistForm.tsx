@@ -47,7 +47,7 @@ const WaitlistForm = () => {
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">You're on the list!</h3>
               <p className="text-muted-foreground">
-                Thanks — we'll reach out soon to onboard your firm.
+                We've reserved your spot. We'll reach out on your email as soon as we're ready to onboard your firm.
               </p>
             </div>
           ) : (

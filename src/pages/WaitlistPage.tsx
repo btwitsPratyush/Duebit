@@ -174,7 +174,7 @@ const WaitlistPage = () => {
                                     </motion.div>
                                     <h3 className="text-3xl font-bold text-white mb-3 tracking-tight">You're on the list!</h3>
                                     <p className="text-slate-400 mb-8 max-w-xs mx-auto leading-relaxed">
-                                        We've reserved your spot. Watch your inbox for your exclusive invite code.
+                                        We've reserved your spot. We'll reach out on your email as soon as we're ready to onboard your firm.
                                     </p>
                                     <Button variant="ghost" className="text-slate-400 hover:text-white hover:bg-white/5" asChild>
                                         <Link to="/">Back to Home</Link>
