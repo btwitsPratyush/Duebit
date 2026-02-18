@@ -73,10 +73,10 @@ export function Hero({
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-lg sm:text-xl md:text-2xl text-slate-300 max-w-2xl mb-12 leading-relaxed font-light"
                 >
-                    WhatsApp-first document collection & compliance OS for <span className="text-white font-medium">CA and Law firms</span>.
+                    WhatsApp-first document collection + email reminders for <span className="text-white font-medium">CA & law firms</span>.
                 </motion.p>
 
                 {/* Single CTA */}
@@ -111,12 +111,12 @@ export function Hero({
                     <span className="hidden sm:inline text-white/10">•</span>
                     <span className="flex items-center gap-2">
                         <span className="text-red-600">✔</span>
-                        70–80% less follow-ups
+                        70–80% fewer follow-ups
                     </span>
                     <span className="hidden sm:inline text-white/10">•</span>
                     <span className="flex items-center gap-2">
                         <span className="text-red-600">✔</span>
-                        Audit-ready logs + exports
+                        Audit-ready logs + ZIP exports
                     </span>
                 </motion.div>
             </div>

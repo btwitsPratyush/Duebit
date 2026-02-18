@@ -18,7 +18,7 @@ const LandingPage = () => {
                 <Hero
                     title="Stop chasing clients"
                     subtitle="for documents"
-                    description="The automated operating system for modern firms. Zero friction. 100% compliance."
+                    description="WhatsApp-first document collection + email reminders for CA & law firms."
                     ctaLabel="Join Waitlist"
                     ctaHref="/waitlist"
                 />
