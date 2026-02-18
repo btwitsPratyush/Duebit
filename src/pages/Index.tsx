@@ -15,8 +15,8 @@ const Index = () => {
       <Navigation ctaLabel="Join Waitlist" ctaHref="/waitlist" />
       <main>
         <Hero
-          title="Docs. Deadlines."
-          subtitle="Done."
+          title="Stop chasing clients"
+          subtitle="for documents"
           description="The automated operating system for modern firms. Zero friction. 100% compliance."
           ctaLabel="Join Waitlist"
           ctaHref="/waitlist"
