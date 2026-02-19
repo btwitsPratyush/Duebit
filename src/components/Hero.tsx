@@ -23,17 +23,10 @@ export function Hero({
 }: HeroProps) {
     return (
         <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-40 pb-20 overflow-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000]">
-            {/* Premium R3F Background */}
+            {/* Premium ShaderGradient Background (Screenshot Studio Style) */}
             <HeroBackground />
 
-            {/* Lighter overlay for better background visibility */}
-            <div
-                className="absolute inset-0 z-[1] bg-gradient-to-b from-black/30 via-black/20 to-black/40"
-                aria-hidden="true"
-            />
-
             <div className="container relative z-10 px-6 mx-auto flex flex-col items-center text-center max-w-4xl">
-                {/* Status badge */}
                 {/* Status badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
@@ -56,13 +49,13 @@ export function Hero({
                     {title}
                 </motion.h1>
 
-                {/* Subtitle */}
+                {/* Subtitle with vibrant gradient */}
                 {subtitle && (
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.15 }}
-                        className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal tracking-tight leading-[1.02] mb-6 text-white/90"
+                        className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal tracking-tight leading-[1.02] mb-6 inline-block bg-gradient-to-r from-[#a3e635] via-[#ff810a] to-[#73bfc4] bg-clip-text text-transparent"
                         style={{ fontFamily: "'Instrument Serif', serif" }}
                     >
                         {subtitle}
