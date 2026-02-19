@@ -57,7 +57,7 @@ const Footer = () => {
             {Array.from({ length: 20 }).map((_, i) => (
               <path
                 key={i}
-                d={`M -20 ${50 + i * 2} Q 50 ${50 - i * 0.5} 120 ${20 + i * 4}`}
+                d={`M - 20 ${50 + i * 2} Q 50 ${50 - i * 0.5} 120 ${20 + i * 4} `}
                 fill="none"
                 stroke="white"
                 strokeWidth="0.15"
@@ -71,7 +71,7 @@ const Footer = () => {
             {Array.from({ length: 20 }).map((_, i) => (
               <path
                 key={i}
-                d={`M -20 ${50 + i * 2} Q 50 ${50 - i * 0.5} 120 ${20 + i * 4}`}
+                d={`M - 20 ${50 + i * 2} Q 50 ${50 - i * 0.5} 120 ${20 + i * 4} `}
                 fill="none"
                 stroke="white"
                 strokeWidth="0.15"
