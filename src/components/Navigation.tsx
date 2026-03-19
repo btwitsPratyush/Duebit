@@ -80,7 +80,7 @@ export function Navigation({
                     opacity: visible ? 1 : 0
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className={`flex items-center justify-between w-full max-w-5xl gap-2 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
+                className={`flex items-center justify-between w-full max-w-[1300px] gap-2 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
             >
                 {/* Left: Branding */}
                 <Link to="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">

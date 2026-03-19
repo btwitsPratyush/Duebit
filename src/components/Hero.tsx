@@ -43,7 +43,7 @@ export function Hero({
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-[44px] sm:text-[64px] md:text-[84px] lg:text-[96px] font-normal tracking-tight leading-[1.02]"
+                    className="text-[44px] sm:text-[64px] md:text-[84px] lg:text-[96px] font-normal tracking-tight leading-[1.08] mb-3"
                     style={{ fontFamily: "'Instrument Serif', serif" }}
                 >
                     {title}
@@ -55,7 +55,7 @@ export function Hero({
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.15 }}
-                        className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-normal tracking-tight leading-[1.02] mb-6 inline-block bg-gradient-to-r from-[#a3e635] via-[#ff810a] to-[#73bfc4] bg-clip-text text-transparent"
+                        className="text-[28px] sm:text-[38px] md:text-[48px] lg:text-[56px] font-normal tracking-tight leading-[1.15] mb-12 inline-block bg-gradient-to-r from-[#707070] via-[#F5F5F7] to-[#707070] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]"
                         style={{ fontFamily: "'Instrument Serif', serif" }}
                     >
                         {subtitle}
