@@ -1,9 +1,33 @@
-import { ShieldCheck, Lock, History, EyeOff } from "lucide-react";
+import { ShieldCheck, Lock, History, FileDown, Eye } from "lucide-react";
+import { motion } from "framer-motion";
+
+const features = [
+  {
+    title: "End-to-End Encryption",
+    desc: "All documents encrypted at rest and in transit.",
+    icon: Lock
+  },
+  {
+    title: "Audit Logs (Every Action Tracked)",
+    desc: "Every upload, reminder, and status change is recorded.",
+    icon: History
+  },
+  {
+    title: "Access Control",
+    desc: "Role-based access for teams and clients.",
+    icon: Eye
+  },
+  {
+    title: "Compliance-Ready Exports",
+    desc: "Download complete job history with documents anytime.",
+    icon: FileDown
+  }
+];
 
 const SecuritySection = () => {
     return (
-        <section className="relative z-10 py-24 bg-[#f6f6f7] overflow-hidden">
-            {/* Grid Pattern */}
+        <section className="relative z-10 py-24 md:py-32 bg-[#F7F7F8] overflow-hidden border-b border-slate-200/50">
+            {/* Grid Pattern - Exact same as requested */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none"
                 style={{
@@ -11,100 +35,106 @@ const SecuritySection = () => {
                     backgroundSize: '32px 32px'
                 }}
             />
-            <div className="container mx-auto max-w-6xl px-6">
+            <div className="container mx-auto max-w-6xl px-6 relative z-10">
 
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-bold uppercase tracking-wider mb-6">
-                            <ShieldCheck className="w-3 h-3" />
-                            Enterprise Grade
-                        </div>
-                        <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 font-display leading-tight">
+                        <motion.div 
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm shadow-xl shadow-primary/5"
+                        >
+                            <ShieldCheck className="w-3 h-3 text-primary" />
+                            <span className="text-xs font-bold text-primary tracking-wide uppercase">Enterprise Grade</span>
+                        </motion.div>
+                        <motion.h2 
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}
+                        >
                             Security isn't a feature. <br />
                             <span className="text-slate-400">It's our foundation.</span>
-                        </h2>
-                        <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-                            Your client data is sensitive. We treat it that way. Built with strict security protocols to keep your firm compliant.
-                        </p>
+                        </motion.h2>
+                        <motion.p 
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.1 }}
+                          className="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed font-light max-w-xl"
+                        >
+                            Every document, action, and follow-up is logged, secured, and audit-ready — automatically.
+                        </motion.p>
 
-                        <div className="grid sm:grid-cols-2 gap-8">
-                            <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700 flex-shrink-0">
-                                    <Lock className="w-5 h-5" />
+                        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
+                            {features.map((f, i) => (
+                              <motion.div 
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + (i * 0.1) }}
+                                className="flex gap-4 group"
+                              >
+                                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 flex-shrink-0 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-all duration-300">
+                                    <f.icon className="w-5 h-5" />
                                 </div>
-                                <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">End-to-End Encryption</h4>
-                                    <p className="text-sm text-slate-500">AES-256 encryption at rest and in transit.</p>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-bold text-slate-900 tracking-tight">{f.title}</h4>
+                                    <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
                                 </div>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700 flex-shrink-0">
-                                    <History className="w-5 h-5" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">Audit Trails</h4>
-                                    <p className="text-sm text-slate-500">Full history of every document access.</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700 flex-shrink-0">
-                                    <EyeOff className="w-5 h-5" />
-                                    1</div>
-                                <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">Private Access</h4>
-                                    <p className="text-sm text-slate-500">Time-limited, secure links for sharing.</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700 flex-shrink-0">
-                                    <ShieldCheck className="w-5 h-5" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">Data Sovereignty</h4>
-                                    <p className="text-sm text-slate-500">Data stored securely on Indian servers.</p>
-                                </div>
-                            </div>
+                              </motion.div>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Visual: Abstract Shield / Lock */}
+                    {/* Right Side: Security Card Visualization */}
                     <div className="relative flex items-center justify-center">
-                        <div className="absolute inset-0 bg-green-100/50 rounded-full blur-3xl transform scale-75" />
+                        <div className="absolute inset-0 bg-red-100/30 rounded-full blur-[100px] transform scale-75 opacity-50" />
 
-                        <div className="relative bg-white border border-slate-100 rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-auto transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                            <div className="flex items-center gap-3 mb-6 border-b border-slate-50 pb-4">
-                                <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
-                                    <ShieldCheck className="w-5 h-5 text-green-600" />
+                        <motion.div 
+                            initial={{ opacity: 0, x: 40, rotate: 2 }}
+                            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                            className="relative bg-white border border-slate-200 rounded-[2rem] shadow-2xl p-8 md:p-10 max-w-sm w-full mx-auto transition-shadow duration-500 hover:shadow-slate-200/50"
+                        >
+                            <div className="flex items-center gap-4 mb-8 border-b border-slate-50 pb-6">
+                                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
+                                    <ShieldCheck className="w-6 h-6 text-emerald-600" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-slate-900">Compliance Check</p>
-                                    <p className="text-xs text-green-600 font-medium">Passed • Just now</p>
+                                    <p className="text-base font-bold text-slate-900 tracking-tight">Compliance Status</p>
+                                    <p className="text-xs text-emerald-600 font-bold uppercase tracking-wider">Verified • Live</p>
                                 </div>
                             </div>
 
-                            <div className="space-y-4">
+                            <div className="space-y-5">
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-slate-500">Encryption Standard</span>
-                                    <span className="font-mono text-slate-700 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">AES-256</span>
+                                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Standard</span>
+                                    <span className="font-mono text-[10px] font-bold text-slate-900 bg-slate-50 px-2.5 py-1 rounded border border-slate-200">AES-256</span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-slate-500">Server Location</span>
-                                    <span className="font-medium text-slate-900 flex items-center gap-1">
-                                        Mumbai (AWS) <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Infrastructure</span>
+                                    <span className="text-[11px] font-bold text-slate-900 flex items-center gap-1.5">
+                                        Mumbai (AWS) <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                                     </span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="text-slate-500">Audit Logging</span>
-                                    <span className="font-bold text-green-600">Active</span>
+                                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Logs</span>
+                                    <span className="text-[11px] font-bold text-emerald-600">Continuous Auditing</span>
                                 </div>
                             </div>
 
-                            <div className="mt-6 pt-4 border-t border-slate-50">
-                                <button className="w-full py-2 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition-colors">
-                                    Download Security Report
+                            <div className="mt-10 pt-6 border-t border-slate-50">
+                                <button className="group w-full py-4 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-slate-800 transition-all duration-300 flex items-center justify-center gap-2">
+                                    <FileDown className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+                                    Download Audit Report
                                 </button>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

@@ -2,24 +2,24 @@
 
 import { motion } from "framer-motion";
 
-const Wave = ({ 
-    color, 
-    opacity, 
-    duration, 
-    delay, 
-    points 
-}: { 
-    color: string; 
-    opacity: number; 
-    duration: number; 
-    delay: number; 
-    points: string 
+const Wave = ({
+    color,
+    opacity,
+    duration,
+    delay,
+    points
+}: {
+    color: string;
+    opacity: number;
+    duration: number;
+    delay: number;
+    points: string
 }) => (
     <motion.path
         d={points}
         fill={color}
         initial={{ opacity: 0 }}
-        animate={{ 
+        animate={{
             opacity,
             d: [
                 points,
@@ -58,7 +58,7 @@ export default function HeroBackground() {
                     delay={0}
                     points="M0,160 C320,300 420,-10 1440,160 V800 H0 Z"
                 />
-                
+
                 {/* Brand Maroon Mid Wave */}
                 <Wave
                     color="#7B1E2B"
@@ -97,7 +97,7 @@ export default function HeroBackground() {
             </svg>
 
             {/* Subtle Texture Grain Overlay */}
-            <div 
+            <div
                 className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
                 style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,

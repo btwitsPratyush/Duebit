@@ -1,28 +1,16 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ArchitectureDiagram } from "./ArchitectureDiagram";
 import { motion } from "framer-motion";
-
-const steps = [
-  { id: 1, text: "Firm creates a job (GST / ITR / Audit / Legal)" },
-  { id: 2, text: "Duebit assigns checklist template automatically" },
-  { id: 3, text: "WhatsApp message is sent to client instantly" },
-  { id: 4, text: "Client uploads docs directly on WhatsApp" },
-  { id: 5, text: "Duebit tracks progress live on dashboard" },
-  { id: 6, text: "Auto reminders trigger until all docs are received" },
-  { id: 7, text: "Export ZIP pack + audit-ready activity log" },
-];
 
 const WhatWeDoSection = () => {
   return (
     <section
-      id="how-it-works"
-      className="relative z-10 px-6 py-24 bg-[#f6f6f7] overflow-hidden"
+      id="detailed-how-it-works"
+      className="relative z-10 px-6 py-24 md:py-32 bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden border-none"
     >
       {/* Subtle background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-red-500/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10">
 
         {/* ── TOP: Text Content (centered) ── */}
         <motion.div
@@ -30,17 +18,24 @@ const WhatWeDoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-red-600 mb-3">
-            How Duebit Works
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-display leading-[1.1]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-bold text-primary tracking-wide uppercase">System Architecture</span>
+          </motion.div>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-[1.1] italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
             How Duebit runs your <br />
-            <span className="text-primary">firm on autopilot.</span>
+            <span className="text-primary italic">firm on autopilot.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-            A WhatsApp-first workflow engine that automates document collection, reminders, tracking, and audit-ready exports, without clients installing anything.
+          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-light">
+            A precise, system-driven workflow engine that automates document tracking, 
+            reminders, and audit-ready organization without human interference.
           </p>
         </motion.div>
 
@@ -50,52 +45,17 @@ const WhatWeDoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl bg-white border border-slate-200 shadow-xl p-6 lg:p-10 mb-16 overflow-visible"
+          className="relative rounded-[3rem] bg-white border border-slate-200 shadow-2xl p-6 lg:p-16 mb-16 overflow-visible"
         >
           <ArchitectureDiagram />
+          
+          {/* Subtle Grid Indicator */}
+          <div className="absolute bottom-10 right-10 hidden lg:block">
+             <div className="flex gap-1">
+                {[1, 2, 3].map(i => <div key={i} className="w-1 h-3 bg-red-100 rounded-full" />)}
+             </div>
+          </div>
         </motion.div>
-
-        {/* ── BOTTOM: Steps + Chips + CTA (2 columns on desktop) ── */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-
-          {/* Left: Numbered Steps */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            {steps.map((step) => (
-              <div key={step.id} className="flex items-start gap-3 group">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary group-hover:bg-primary group-hover:text-white transition-colors border border-primary/20">
-                  {step.id}
-                </div>
-                <p className="text-sm text-foreground/80 font-medium pt-0.5">
-                  {step.text}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Right: Chips + CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-start lg:items-end"
-          >
-            <div className="flex flex-wrap gap-3 mb-8">
-              {["70–80% less follow-up work", "No portals. No logins.", "Every doc tracked"].map((chip) => (
-                <div key={chip} className="px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-600 uppercase tracking-wider flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                  {chip}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
 
       </div>
     </section>

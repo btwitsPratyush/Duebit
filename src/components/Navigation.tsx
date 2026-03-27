@@ -59,13 +59,6 @@ export function Navigation({
     }, []);
 
     const isHome = location.pathname === "/";
-
-    const navLinks = [
-        { name: "Features", href: isHome ? "#features" : "/#features" },
-        { name: "How it Works", href: isHome ? "#how-it-works" : "/#how-it-works" },
-        { name: "Pricing", href: "/pricing" },
-    ];
-
     const textColor = scrolled || dark ? "text-slate-900" : "text-white";
     const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-white/70 hover:text-white";
     const borderColor = scrolled || dark ? "border-black/10" : "border-white/10";
@@ -89,19 +82,6 @@ export function Navigation({
                     </span>
                 </Link>
 
-                {/* Center: Nav links */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className={`text-sm font-medium transition-colors duration-300 ${linkColor}`}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-
                 {/* Right: Actions */}
                 <div className="flex items-center gap-1.5 sm:gap-3">
                     <Link
@@ -113,11 +93,12 @@ export function Navigation({
 
                     <Button
                         asChild
-                        className="btn-paper px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
+                        variant="maroon"
+                        className="px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
                     >
-                        <Link to={ctaHref}>
+                        <a href={ctaHref} target={ctaHref?.startsWith("http") ? "_blank" : undefined} rel={ctaHref?.startsWith("http") ? "noopener noreferrer" : undefined}>
                             {ctaLabel}
-                        </Link>
+                        </a>
                     </Button>
                 </div>
             </motion.div>

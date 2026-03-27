@@ -1,248 +1,294 @@
+import * as React from "react";
+import { Check, Lock, FileText, ShieldCheck, RefreshCw, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Check, ShieldCheck, FileText, Lock, ChevronDown, ChevronUp, Star } from "lucide-react";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { LiquidCtaButton } from "@/components/ui/LiquidCtaButton";
+import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
 
-const plans = [
+const pricingPlans = [
   {
-    name: "Starter",
-    tagline: "For solo CA/Law practitioners getting started.",
-    price: "₹799",
-    period: "/month",
-    features: [
-      "Up to 20 Active Clients",
-      "Automated WhatsApp Doc Collection",
-      "Basic Checklists",
-      "Email Support",
-      "Secure Storage"
-    ],
-    popular: false,
-    cta: "Get Started",
-    link: "#waitlist",
-  },
-  {
-    name: "Professional",
-    tagline: "Built for busy CA & Law teams managing 50+ clients.",
+    name: "Pilot Plan",
     price: "₹1,499",
     period: "/month",
+    tagline: "For early firms automating client follow-ups.",
+    subline: "Ideal for starting professional automation.",
     features: [
-      "Automated WhatsApp Doc Collection",
-      "Smart Checklist Templates (GST/ITR)",
-      "Auto Follow-ups & Reminders",
-      "Deadline Tracking + Alerts",
-      "One-click Export ZIP Pack",
-      "Audit-ready Activity Log",
-      "Team Access (3 Users)"
+      "Up to 25 Active Clients",
+      "Basic Job & Checklist Automation",
+      "Document Upload Links (No login required)",
+      "Email Reminders",
+      "Secure Document Storage",
+      "Activity Tracking Logs",
     ],
-    popular: true,
     cta: "Get Started",
-    link: "#waitlist",
-    recommended: "Recommended for most firms"
+    variant: "outline",
+    popular: false,
+    link: "https://cal.com/duebit-demo/30min",
+    external: true
+  },
+  {
+    name: "Growing Firm",
+    price: "₹2,999",
+    period: "/month",
+    tagline: "For firms handling multiple active workflows.",
+    subline: "Best for professional firms at scale.",
+    features: [
+      "Unlimited Clients",
+      "Automated Job Creation + Smart Checklists",
+      "Missing Document Tracking",
+      "Auto Follow-ups (Email-based)",
+      "Deadline Tracking & Alerts",
+      "Real-time Status Dashboard",
+      "Audit-ready Activity Logs",
+      "One-click Export (ZIP + Logs)",
+      "Team Access (Up to 5 users)",
+    ],
+    cta: "Get Started",
+    variant: "default",
+    popular: true,
+    link: "https://cal.com/duebit-demo/30min",
+    external: true
   },
   {
     name: "Enterprise",
-    tagline: "For large firms needing advanced security & flows.",
     price: "Custom",
     period: "",
+    tagline: "For larger teams and custom workflow setups.",
+    subline: "Advanced security & bespoke automation.",
     features: [
-      "Unlimited Clients",
-      "Custom Checklist Workflows",
-      "Dedicated Onboarding",
+      "Unlimited Clients & Workflows",
+      "Custom Workflow Automation",
       "Role-based Access Control",
-      "White-label Client Portal",
+      "Advanced Audit Logs & Reporting",
+      "Dedicated Onboarding",
       "Priority Support",
-      "On-premise Option"
+      "Custom Integrations",
+      "Data Residency Options",
     ],
+    cta: "Book Demo",
+    variant: "outline",
     popular: false,
-    cta: "Book a Call",
-    link: "https://calendly.com/duebit/demo",
+    link: "https://cal.com/duebit-demo/30min",
+    external: true
   },
 ];
 
 const faqs = [
   {
-    q: "Do clients need to install any app?",
-    a: "No. Clients stay inside WhatsApp. They simply upload documents in their favorite chat app. Your team tracks everything inside Duebit."
+    question: "Do clients need to install any app?",
+    answer: "No. Clients receive a secure upload link via email and can upload documents directly without logging in."
   },
   {
-    q: "Does Duebit work with WhatsApp Business API?",
-    a: "Yes. Duebit integrates with WhatsApp Business API to send checklists, reminders, and follow-ups automatically securely."
+    question: "How does Duebit collect documents?",
+    answer: "Duebit automatically generates a checklist and sends secure upload links to clients. It tracks missing documents and follows up until everything is received."
   },
   {
-    q: "Can I import clients from Excel?",
-    a: "Yes. You can upload a CSV/Excel sheet and Duebit will instantly create client profiles and initiate workflows in bulk."
+    question: "How are follow-ups automated?",
+    answer: "The system continuously tracks missing items and sends scheduled reminders automatically until documents are submitted."
   },
   {
-    q: "What is “Export ZIP Pack”?",
-    a: "Duebit automatically organizes all client documents into a structured folder and generates a single downloadable ZIP file in one click."
+    question: "Can I track client progress?",
+    answer: "Yes. You get a real-time dashboard showing document status, pending items, and job progress across all clients."
   },
   {
-    q: "Is client data secure?",
-    a: "Yes. All data is encrypted (AES-256) at rest and in transit. We maintain strictly logged audit trails for every action."
+    question: "What is included in the export ZIP pack?",
+    answer: "A complete package of all documents along with audit-ready activity logs for compliance and reporting."
+  },
+  {
+    question: "Is client data secure?",
+    answer: "Yes. All data is encrypted and every action is logged for full audit visibility."
+  },
+  {
+    question: "Can I use Duebit for different workflows?",
+    answer: "Yes. Duebit supports GST, ITR, audits, legal work, onboarding, and other document-heavy workflows."
   }
 ];
 
 const PricingSection = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
   return (
-    <section id="pricing" className="relative z-10 py-32 bg-slate-50 overflow-hidden">
-      {/* Subtle Wine Gradient Background - Increased visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-[#8B1E2D]/[0.08] to-slate-50 pointer-events-none" />
+    <section id="pricing" className="relative z-10 py-24 md:py-32 bg-zinc-50 dark:bg-zinc-900/50 text-foreground font-sans overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Grain Overlay - Increased visibility */}
-      <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
-
-      <div className="container mx-auto max-w-6xl px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <p className="text-sm font-bold uppercase tracking-widest text-red-700 mb-3">Pricing</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 font-display">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-bold text-primary tracking-wide uppercase">Flexible Plans</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal mb-6 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
             Simple, transparent pricing.
           </h2>
-          <p className="text-slate-500 font-medium flex items-center justify-center gap-3 text-sm sm:text-base">
-            <span>No setup fee</span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span>Cancel anytime</span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span>WhatsApp-first onboarding</span>
+          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest flex items-center justify-center gap-2 mb-2">
+            No setup fee • Cancel anytime • Built for compliance workflows
           </p>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24 max-w-5xl mx-auto items-start">
-          {plans.map((plan, idx) => (
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
+          {pricingPlans.map((plan, idx) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -8 }}
-              className={`relative flex flex-col p-8 rounded-3xl transition-all duration-300 ${plan.popular
-                ? "bg-white border-2 border-red-700 shadow-2xl shadow-red-900/10 z-10"
-                : "bg-white border border-slate-200 shadow-sm hover:border-red-100 hover:shadow-xl hover:shadow-red-900/5"
+              className={`relative rounded-3xl p-8 border transition-all duration-300 flex flex-col ${plan.popular
+                ? "bg-background border-primary shadow-[0_20px_40px_-10px_rgba(120,252,214,0.15)] scale-105 z-10"
+                : "bg-card border-border hover:border-primary/50 hover:shadow-lg"
                 }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-red-600 rounded-full blur opacity-40 group-hover:opacity-60 transition duration-500 animate-pulse" />
-                    <div className="relative px-4 py-1.5 bg-red-700 text-white text-[11px] font-bold uppercase tracking-widest rounded-full border border-red-500 shadow-sm flex items-center gap-1.5">
-                      <Star className="w-3 h-3 fill-white" /> Most Popular
-                    </div>
-                  </div>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                  Most Popular
                 </div>
               )}
 
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{plan.name}</h3>
-                <p className="text-sm text-slate-500 leading-snug min-h-[40px]">{plan.tagline}</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                <p className="text-sm font-medium text-muted-foreground">{plan.tagline}</p>
+                <p className="text-xs text-muted-foreground/60 mt-1">{plan.subline}</p>
               </div>
 
-              <div className="mb-8 flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-slate-900 tracking-tight">{plan.price}</span>
-                <span className="text-slate-500 text-sm font-medium">{plan.period}</span>
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-4xl font-bold text-foreground tracking-tight">{plan.price}</span>
+                <span className="text-sm text-muted-foreground font-medium">{plan.period}</span>
               </div>
 
-              <div className="space-y-4 mb-8 flex-1">
-                {plan.features.map((f, i) => (
-                  <div key={i} className="flex items-start gap-3 text-sm group">
-                    <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${plan.popular ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-500 group-hover:text-red-600 group-hover:bg-red-50 transition-colors'}`}>
-                      <Check className="w-2.5 h-2.5" />
-                    </div>
-                    <span className="text-slate-700 font-medium">{f}</span>
+              <div className="flex-1 space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <Check className={`w-4 h-4 shrink-0 mt-0.5 ${plan.popular ? 'text-primary' : 'text-muted-foreground/40'}`} />
+                    <span className="leading-snug">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-auto">
-                <Button
-                  size="lg"
-                  className={`w-full font-bold h-12 rounded-xl transition-all duration-300 relative overflow-hidden group ${plan.popular
-                    ? 'bg-red-800 hover:bg-red-900 text-white shadow-lg shadow-red-900/20 hover:shadow-red-900/30'
-                    : 'bg-white border-2 border-slate-100 text-slate-700 hover:border-red-200 hover:text-red-700 hover:bg-red-50'
-                    }`}
-                  asChild
-                >
-                  <a href={plan.link}>
-                    <span className="relative z-10">{plan.cta}</span>
-                    {/* Subtle Shine Effect for Popular Button */}
-                    {plan.popular && (
-                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-                    )}
-                  </a>
-                </Button>
-                {plan.recommended && (
-                  <p className="text-center text-[10px] items-center justify-center font-bold uppercase tracking-wide text-red-700 mt-3 flex gap-1.5 opacity-80">
-                    <ShieldCheck className="w-3 h-3" /> {plan.recommended}
-                  </p>
+              <Button
+                className={`w-full font-bold rounded-full h-12 ${plan.popular
+                  ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20'
+                  : 'bg-transparent text-foreground border-2 border-border hover:border-primary/50 hover:bg-primary/5'
+                  }`}
+                size="lg"
+                asChild
+              >
+                {plan.external ? (
+                  <a href={plan.link} target="_blank" rel="noopener noreferrer">{plan.cta}</a>
+                ) : (
+                  <Link to={plan.link}>{plan.cta}</Link>
                 )}
-              </div>
+              </Button>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust Footer */}
+        {/* Secondary Conversion: Book a Demo */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-24 opacity-60"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-32"
         >
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
-            <ShieldCheck className="w-4 h-4" /> Trusted by CA & Law Firms
-          </div>
+          <LiquidMetalBorder
+            theme="dark"
+            backgroundColor="#050505"
+            borderRadius={48}
+            borderWidth={1.5}
+            speed={0.6}
+            scale={1.5}
+            colorTint="#EF4444"
+            className="flex w-full shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
+          >
+            {/* The Actual Card Surface */}
+            <div className="flex-1 w-full p-12 md:p-16 text-center relative overflow-hidden flex flex-col items-center">
+
+              {/* Dynamic Background Glows - covering more area */}
+              <div className="absolute top-[-10%] left-[-5%] w-[60%] h-[80%] bg-red-600/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
+              <div className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[80%] bg-red-900/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+
+              {/* Tech Grid Overlay - absolute inset-0 to cover the whole surface inside the border */}
+              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+              {/* Central radial fade for the grid */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,#050505_100%)] pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col items-center w-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md"
+                >
+                  <RefreshCw className="w-3.5 h-3.5 text-red-500 animate-spin-slow" />
+                  <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.4em]">Personalized Review</span>
+                </motion.div>
+
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  Not sure which plan fits?
+                </h3>
+                <p className="text-slate-400 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
+                  Book a 10-minute demo call and we’ll show you the exact workflow tailored for your firm.
+                </p>
+
+                <div className="flex flex-col items-center gap-8 w-full mt-auto">
+                  <a href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer">
+                    <LiquidCtaButton theme="dark" showArrow={false} backgroundColor="#000000">
+                      Book Demo
+                    </LiquidCtaButton>
+                  </a>
+
+                  <div className="flex flex-col items-center gap-2 opacity-30">
+                    <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+                    <p className="text-[9px] font-bold text-white uppercase tracking-[0.8em]">
+                      Precision Engineering
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LiquidMetalBorder>
         </motion.div>
 
-        {/* FAQ */}
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-slate-900 mb-10 font-display">Frequently Asked Questions</h3>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={false}
-                className="border border-slate-200 rounded-2xl bg-white overflow-hidden hover:border-slate-300 transition-colors"
-              >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-white"
-                >
-                  <span className="font-bold text-slate-900 text-base pr-8">{faq.q}</span>
-                  {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-red-700 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                  )}
-                </button>
-                <AnimatePresence initial={false}>
-                  {openFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      <div className="px-6 pb-6 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-4">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+        {/* FAQs */}
+        <div className="max-w-3xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <AccordionItem key={idx} value={`item-${idx}`} className="border border-border rounded-2xl bg-card px-2 shadow-sm transition-all hover:border-primary/30">
+                <AccordionTrigger className="hover:no-underline hover:text-primary transition-colors py-5 px-4 text-base font-semibold text-left text-foreground">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 px-4 text-sm">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
+          </Accordion>
+        </div>
+
+        {/* Security Trust Strip */}
+        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 max-w-4xl mx-auto border-t border-border pt-10">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            <Lock className="w-4 h-4 text-primary" /> Encrypted Storage
+          </div>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            <FileText className="w-4 h-4 text-primary" /> Audit Logs
+          </div>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            <ShieldCheck className="w-4 h-4 text-primary" /> Secure Access
           </div>
         </div>
 
