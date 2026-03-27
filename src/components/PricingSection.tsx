@@ -240,7 +240,7 @@ const PricingSection = () => {
                   Not sure which plan fits?
                 </h3>
                 <p className="text-slate-400 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
-                  Book a 10-minute demo call and we’ll show you the exact workflow tailored for your firm.
+                  Book a 30-minute demo call and we’ll show you the exact workflow tailored for your firm.
                 </p>
 
                 <div className="flex flex-col items-center gap-8 w-full mt-auto">

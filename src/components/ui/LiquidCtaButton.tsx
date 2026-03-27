@@ -37,7 +37,7 @@ export function LiquidCtaButton({
       theme={theme}
       backgroundColor={resolvedBg}
       borderRadius={9999}
-      borderWidth={5}
+      borderWidth={2}
       speed={speed}
       scale={scale}
       colorTint={colorTint}
