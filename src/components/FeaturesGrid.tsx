@@ -114,7 +114,7 @@ const FeaturesGrid = () => {
                     <div className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
                   </div>
                   <h4 className="text-2xl font-bold text-slate-900">GST Filing</h4>
-                  <p className="text-sm font-medium text-slate-500">Client: ABC Pvt Ltd</p>
+                  <p className="text-sm font-medium text-slate-500">Client: Mehta & Associates</p>
                 </div>
                 <div className="text-right space-y-2">
                   <div className="px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(239,68,68,0.1)]">

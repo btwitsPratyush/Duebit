@@ -145,7 +145,7 @@ const ProductInAction = () => {
                            <Briefcase className="w-4 h-4 text-white/60" />
                         </div>
                         <div className="flex items-center gap-3">
-                          <h3 className="text-white font-medium text-base">ABC Pvt Ltd</h3>
+                          <h3 className="text-white font-medium text-base">Mehta & Associates</h3>
                           <span className="px-2 py-0.5 rounded border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-widest">Active Client</span>
                         </div>
                       </div>
