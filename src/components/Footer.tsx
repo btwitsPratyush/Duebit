@@ -128,7 +128,7 @@ const Footer = () => {
                 <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Socials</h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="https://x.com/TryDuebit" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
+                    <a href="https://x.com/duebitHQ" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
                       <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
