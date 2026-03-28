@@ -43,7 +43,7 @@ const Node = ({ icon: Icon, label, active, pulse }: { icon: any; label: string; 
         />
       )}
     </div>
-    <span className={`text-[9px] md:text-[11px] font-bold md:font-black uppercase tracking-wider md:tracking-[0.2em] text-center max-w-[64px] md:max-w-[120px] leading-tight transition-colors duration-500 ${active ? 'text-slate-700 md:text-slate-900' : 'text-slate-400 md:text-slate-300'}`}>
+    <span className={`text-[10px] md:text-[11px] font-bold md:font-black uppercase tracking-wider md:tracking-[0.2em] text-center max-w-[80px] md:max-w-[120px] leading-tight transition-colors duration-500 ${active ? 'text-slate-700 md:text-slate-900' : 'text-slate-400 md:text-slate-300'}`}>
       {label}
     </span>
   </motion.div>
@@ -143,8 +143,8 @@ export const ArchitectureDiagram = () => {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* ── MOBILE LAYOUT: Vertical Stacked Flow ── */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="md:hidden flex flex-col items-center gap-0 w-full max-w-xs z-10">
-        <div className="flex items-start justify-around w-full px-2 mb-2">
+      <div className="md:hidden flex flex-col items-center gap-0 w-full max-w-sm z-10 px-2">
+        <div className="grid grid-cols-3 gap-4 w-full mb-3">
           <Node icon={UserPlus} label="Add Client" active={phase >= 0} pulse={phase === 0} />
           <Node icon={Settings} label="Select Service" active={phase >= 0} />
           <Node icon={Users} label="Assign Team" active={phase >= 0} />
@@ -220,7 +220,7 @@ export const ArchitectureDiagram = () => {
 
         <FlowArrow active={phase >= 2} />
 
-        <div className="flex items-start justify-around w-full px-2 mt-2">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 w-full mt-4 px-4 pb-4">
           <Node icon={Bell} label="Notified" active={phase >= 2} pulse={phase === 2} />
           <Node icon={LinkIcon} label="Link Sent" active={phase >= 2} />
           <Node icon={Upload} label="Uploaded" active={phase === 3} />
