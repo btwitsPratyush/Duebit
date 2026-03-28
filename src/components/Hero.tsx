@@ -21,7 +21,7 @@ export function Hero({
     onCtaClick,
 }: HeroProps) {
     return (
-        <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center pb-16 md:pb-[120px] pt-32 md:pt-56 overflow-x-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000] snap-section">
+        <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center pb-12 md:pb-50 pt-16 md:pt-28 overflow-x-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000] snap-section">
             <HeroBackground />
             <div className="container relative z-10 px-6 mx-auto flex flex-col items-center text-center max-w-4xl">
                 <motion.div
@@ -82,7 +82,7 @@ export function Hero({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.45 }}
-                    className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-12 md:mt-28 mb-0 px-4 text-sm text-slate-300/80 font-medium"
+                    className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-12 md:mt-16 mb-0 px-4 text-sm text-slate-300/80 font-medium"
                 >
                     <span className="flex items-center gap-2">
                         <span className="text-red-600">✔</span>
