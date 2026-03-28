@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Check, Lock, FileText, ShieldCheck, RefreshCw, ArrowRight } from "lucide-react";
+import { Check, Lock, FileText, ShieldCheck, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -8,24 +8,46 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { LiquidCtaButton } from "@/components/ui/LiquidCtaButton";
 import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
 
 const pricingPlans = [
   {
-    name: "Pilot Plan",
-    price: "₹1,499",
-    period: "/month",
-    tagline: "For early firms automating client follow-ups.",
-    subline: "Ideal for starting professional automation.",
+    name: "Trial",
+    phase: "Basic document tracking",
+    description: "Try Duebit on a few real clients before committing",
+    priceMonthly: "₹0",
+    priceAnnual: "₹0",
+    period: "/14 days",
+    subtext: "No card required",
     features: [
-      "Up to 25 Active Clients",
-      "Basic Job & Checklist Automation",
-      "Document Upload Links (No login required)",
-      "Email Reminders",
-      "Secure Document Storage",
-      "Activity Tracking Logs",
+      "Up to 10 Active Clients",
+      "Standard Activity Logs",
+      "Document Upload Links",
+      "Missing Document Tracking",
+    ],
+    cta: "Start Free Trial",
+    variant: "outline",
+    popular: false,
+    link: "https://cal.com/duebit-demo/30min",
+    external: true
+  },
+  {
+    name: "Core",
+    phase: "Start automating your workflow",
+    description: "Ideal for solo CA firms managing recurring work",
+    priceMonthly: "₹1,499",
+    priceAnnual: "₹1,250", // 14999 / 12
+    annualTotal: "₹14,999/year",
+    period: "/month",
+    features: [
+      "Up to 75 Active Clients",
+      "1 Team Member included",
+      "Basic dashboard insights",
+      "Auto reminders for pending documents",
+      "Basic compliance tracking",
+      "Unlimited Workflow Templates",
     ],
     cta: "Get Started",
     variant: "outline",
@@ -34,45 +56,46 @@ const pricingPlans = [
     external: true
   },
   {
-    name: "Growing Firm",
-    price: "₹2,999",
+    name: "Growth",
+    phase: "Fully automated compliance system",
+    description: "Best for growing CA firms handling higher volume",
+    priceMonthly: "₹2,999",
+    priceAnnual: "₹2,500", // 29999 / 12
+    annualTotal: "₹29,999/year",
     period: "/month",
-    tagline: "For firms handling multiple active workflows.",
-    subline: "Best for professional firms at scale.",
     features: [
-      "Unlimited Clients",
-      "Automated Job Creation + Smart Checklists",
-      "Missing Document Tracking",
-      "Auto Follow-ups (Email-based)",
-      "Deadline Tracking & Alerts",
-      "Real-time Status Dashboard",
-      "Audit-ready Activity Logs",
-      "One-click Export (ZIP + Logs)",
-      "Team Access (Up to 5 users)",
+      "Everything in Core",
+      "Up to 200 Active Clients",
+      "Handle 3–5x more clients without chaos",
+      "Automated compliance tracking",
+      "Priority alerts for due/at-risk jobs",
+      "Real-time compliance insights",
+      "Manage multiple clients at once",
     ],
-    cta: "Get Started",
+    cta: "Choose Growth",
     variant: "default",
     popular: true,
     link: "https://cal.com/duebit-demo/30min",
     external: true
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    tagline: "For larger teams and custom workflow setups.",
-    subline: "Advanced security & bespoke automation.",
+    name: "Scale",
+    phase: "Run your firm at scale with full control",
+    description: "For larger firms with multi-user workflows",
+    priceMonthly: "₹4,999",
+    priceAnnual: "₹4,167", // 49999 / 12
+    annualTotal: "₹49,999/year",
+    period: "/month",
     features: [
-      "Unlimited Clients & Workflows",
-      "Custom Workflow Automation",
-      "Role-based Access Control",
-      "Advanced Audit Logs & Reporting",
-      "Dedicated Onboarding",
-      "Priority Support",
-      "Custom Integrations",
-      "Data Residency Options",
+      "Everything in Growth",
+      "Unlimited Active Clients",
+      "Dedicated onboarding support",
+      "Role-based access (Admin / Staff)",
+      "Advanced audit logs",
+      "Faster priority support",
+      "Unlimited Team Members",
     ],
-    cta: "Book Demo",
+    cta: "Get Started",
     variant: "outline",
     popular: false,
     link: "https://cal.com/duebit-demo/30min",
@@ -82,38 +105,40 @@ const pricingPlans = [
 
 const faqs = [
   {
-    question: "Do clients need to install any app?",
-    answer: "No. Clients receive a secure upload link via email and can upload documents directly without logging in."
+    question: "Do clients need to install any app or log in?",
+    answer: "No. Clients can upload documents through secure links, no app install or account setup required."
   },
   {
-    question: "How does Duebit collect documents?",
-    answer: "Duebit automatically generates a checklist and sends secure upload links to clients. It tracks missing documents and follows up until everything is received."
+    question: "How do automatic follow-ups work?",
+    answer: "Once you set a deadline, Duebit tracks what’s still missing and sends reminder emails based on your workflow. If the client uploads everything, the reminders stop automatically."
   },
   {
-    question: "How are follow-ups automated?",
-    answer: "The system continuously tracks missing items and sends scheduled reminders automatically until documents are submitted."
+    question: "Is my client data safe?",
+    answer: "Yes. Documents and activity are stored securely, with access limited to your firm and authorized team members."
   },
   {
-    question: "Can I track client progress?",
-    answer: "Yes. You get a real-time dashboard showing document status, pending items, and job progress across all clients."
+    question: "Can I manage different types of filing (GST, ITR, Audit)?",
+    answer: "Yes. You can create workflows for different compliance tasks and define the documents required for each one."
   },
   {
-    question: "What is included in the export ZIP pack?",
-    answer: "A complete package of all documents along with audit-ready activity logs for compliance and reporting."
+    question: "What happens after the 14-day trial?",
+    answer: "At the end of the trial, you can choose a paid plan based on your firm size and continue without losing your data."
   },
   {
-    question: "Is client data secure?",
-    answer: "Yes. All data is encrypted and every action is logged for full audit visibility."
+    question: "Can I upgrade later as my firm grows?",
+    answer: "Yes. You can upgrade anytime as your client volume or team size increases."
   },
   {
-    question: "Can I use Duebit for different workflows?",
-    answer: "Yes. Duebit supports GST, ITR, audits, legal work, onboarding, and other document-heavy workflows."
+    question: "Can my team use Duebit together?",
+    answer: "Yes. Depending on your plan, you can add team members to manage workflows, upload documents, and track pending items together."
   }
 ];
 
 const PricingSection = () => {
+  const [billingCycle, setBillingCycle] = React.useState<"monthly" | "annual">("monthly");
+
   return (
-    <section id="pricing" className="relative z-10 py-24 md:py-32 bg-zinc-50 dark:bg-zinc-900/50 text-foreground font-sans overflow-hidden">
+    <section id="pricing" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 text-foreground font-sans overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -124,22 +149,46 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          className="text-center mb-12 max-w-3xl mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-bold text-primary tracking-wide uppercase">Flexible Plans</span>
+            <span className="text-xs font-bold text-primary tracking-wide uppercase">Start Free • Scale Anytime</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal mb-6 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            Simple, transparent pricing.
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal mb-8 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            Invest in your <span className="text-primary">firm’s focus.</span>
           </h2>
-          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest flex items-center justify-center gap-2 mb-2">
-            No setup fee • Cancel anytime • Built for compliance workflows
+
+          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest flex items-center justify-center gap-2 mb-10">
+            No setup fee • 14-day free trial on all plans • Cancel anytime
           </p>
+
+          {/* Billing Toggle */}
+          <div className="flex items-center justify-center gap-6 mb-16">
+            <span className={`text-base font-bold transition-colors ${billingCycle === "monthly" ? "text-foreground" : "text-muted-foreground"}`}>Monthly Billing</span>
+            <button
+              onClick={() => setBillingCycle(billingCycle === "monthly" ? "annual" : "monthly")}
+              className="relative w-16 h-8 bg-zinc-200 dark:bg-zinc-800 rounded-full p-1.5 transition-colors duration-300 focus:outline-none ring-1 ring-border shadow-inner"
+            >
+              <motion.div
+                animate={{ x: billingCycle === "monthly" ? 0 : 32 }}
+                className="w-5 h-5 bg-primary rounded-full shadow-lg"
+              />
+            </button>
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-start translate-y-1">
+                <span className={`text-base font-bold leading-none transition-colors ${billingCycle === "annual" ? "text-foreground" : "text-muted-foreground"}`}>Annual Billing</span>
+                <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest mt-1">Billed annually</span>
+              </div>
+              <span className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm animate-bounce-subtle">
+                Save 2 Months
+              </span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-20 md:mb-32">
           {pricingPlans.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -147,40 +196,60 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-3xl p-8 border transition-all duration-300 flex flex-col ${plan.popular
-                ? "bg-background border-primary shadow-[0_20px_40px_-10px_rgba(120,252,214,0.15)] scale-105 z-10"
-                : "bg-card border-border hover:border-primary/50 hover:shadow-lg"
+              className={`relative rounded-3xl p-7 border transition-all duration-500 flex flex-col ${plan.popular
+                ? "bg-background border-primary shadow-[0_30px_60px_-15px_rgba(120,252,214,0.35)] scale-[1.03] lg:scale-105 z-10 ring-1 ring-primary/30"
+                : "bg-card border-border hover:border-primary/40 hover:shadow-2xl hover:-translate-y-2"
                 }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] font-black px-5 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-xl">
                   Most Popular
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
-                <p className="text-sm font-medium text-muted-foreground">{plan.tagline}</p>
-                <p className="text-xs text-muted-foreground/60 mt-1">{plan.subline}</p>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-foreground mb-1">{plan.name}</h3>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80 mb-4">{plan.phase}</p>
+                <p className="text-[13px] font-medium text-muted-foreground leading-relaxed h-12">{plan.description}</p>
+                <div className="relative h-[1px] w-full my-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-[2px] bg-primary/20 blur-[1px]" />
+                </div>
+                {plan.subtext && <p className="text-[11px] text-muted-foreground/60 font-medium">{plan.subtext}</p>}
+                {plan.annualTotal && billingCycle === "annual" && (
+                  <p className="text-[11px] text-primary font-bold">{plan.annualTotal}</p>
+                )}
               </div>
 
-              <div className="flex items-baseline gap-1 mb-8">
-                <span className="text-4xl font-bold text-foreground tracking-tight">{plan.price}</span>
-                <span className="text-sm text-muted-foreground font-medium">{plan.period}</span>
+              <div className="flex items-baseline gap-1 mb-10 overflow-hidden h-14">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={billingCycle + plan.name}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    className="text-5xl font-bold text-foreground tracking-tighter"
+                  >
+                    {billingCycle === "monthly" ? plan.priceMonthly : plan.priceAnnual}
+                  </motion.span>
+                </AnimatePresence>
+                <span className="text-sm text-muted-foreground font-semibold">
+                  {plan.name === "Trial" ? plan.period : plan.period}
+                </span>
               </div>
 
-              <div className="flex-1 space-y-4 mb-8">
+              <div className="flex-1 space-y-4 mb-10">
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <Check className={`w-4 h-4 shrink-0 mt-0.5 ${plan.popular ? 'text-primary' : 'text-muted-foreground/40'}`} />
-                    <span className="leading-snug">{feature}</span>
+                    <Check className={`w-4 h-4 shrink-0 mt-0.5 ${plan.popular ? 'text-primary' : 'text-primary/50'}`} />
+                    <span className="leading-tight text-[13px] font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
 
               <Button
-                className={`w-full font-bold rounded-full h-12 ${plan.popular
-                  ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20'
+                className={`w-full font-bold rounded-xl h-12 text-sm transition-all duration-300 ${plan.popular
+                  ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20 hover:scale-[1.02]'
                   : 'bg-transparent text-foreground border-2 border-border hover:border-primary/50 hover:bg-primary/5'
                   }`}
                 size="lg"
@@ -201,7 +270,7 @@ const PricingSection = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-32"
+          className="max-w-4xl mx-auto mb-20 md:mb-32"
         >
           <LiquidMetalBorder
             theme="dark"
@@ -263,15 +332,28 @@ const PricingSection = () => {
         </motion.div>
 
         {/* FAQs */}
-        <div className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-4xl mx-auto mb-20 md:mb-32 px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-foreground italic mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              Questions firms usually <span className="text-primary">ask before switching</span>
+            </h2>
+            <div className="h-1.5 w-16 bg-primary/20 mx-auto rounded-full" />
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="border border-border rounded-2xl bg-card px-2 shadow-sm transition-all hover:border-primary/30">
-                <AccordionTrigger className="hover:no-underline hover:text-primary transition-colors py-5 px-4 text-base font-semibold text-left text-foreground">
-                  {faq.question}
+              <AccordionItem
+                key={idx}
+                value={`item-${idx}`}
+                className="group border-none rounded-2xl bg-white dark:bg-zinc-900/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-0.5"
+              >
+                <AccordionTrigger className="hover:no-underline py-6 px-6 text-base font-bold text-left text-foreground/80 group-data-[state=open]:text-primary transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+                    {faq.question}
+                  </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 px-4 text-sm">
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 px-10 text-[15px] font-medium border-t border-zinc-50 dark:border-zinc-800/50 pt-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -283,9 +365,6 @@ const PricingSection = () => {
         <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 max-w-4xl mx-auto border-t border-border pt-10">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
             <Lock className="w-4 h-4 text-primary" /> Encrypted Storage
-          </div>
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-            <FileText className="w-4 h-4 text-primary" /> Audit Logs
           </div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
             <ShieldCheck className="w-4 h-4 text-primary" /> Secure Access

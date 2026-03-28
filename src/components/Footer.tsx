@@ -81,7 +81,7 @@ const Footer = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-6 pt-20 pb-16 relative z-10">
+        <div className="container mx-auto px-6 pt-20 md:pt-[120px] pb-16 relative z-10">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
             {/* Brand Column - duebit jahan tha wahi */}
             <div className="md:col-span-5 lg:col-span-6">

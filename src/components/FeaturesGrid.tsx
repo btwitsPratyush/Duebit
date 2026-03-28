@@ -32,7 +32,7 @@ const FeaturesGrid = () => {
   }, []);
 
   return (
-    <section id="features" className="relative z-10 py-24 md:py-32 bg-[#F7F7F8] overflow-hidden border-t border-slate-200/50">
+    <section id="features" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden">
       <div className="container mx-auto max-w-6xl px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 

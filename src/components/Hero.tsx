@@ -21,7 +21,7 @@ export function Hero({
     onCtaClick,
 }: HeroProps) {
     return (
-        <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center pb-12 pt-40 overflow-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000] snap-section">
+        <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center pb-16 md:pb-[120px] pt-48 md:pt-56 overflow-hidden text-white selection:bg-white/20 selection:text-white bg-[#050000] snap-section">
             <HeroBackground />
             <div className="container relative z-10 px-6 mx-auto flex flex-col items-center text-center max-w-4xl">
                 <motion.div

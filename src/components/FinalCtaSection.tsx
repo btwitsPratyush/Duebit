@@ -2,7 +2,7 @@ import { LiquidCtaButton } from "@/components/ui/LiquidCtaButton";
 
 const FinalCtaSection = () => {
   return (
-    <section id="final-cta-section" className="relative z-10 min-h-[104vh] flex items-center justify-center py-20 overflow-hidden footer-and-cta bg-black">
+    <section id="final-cta-section" className="relative z-10 min-h-[104vh] flex items-center justify-center py-20 md:py-[120px] overflow-hidden footer-and-cta bg-black">
 
       {/* Image Background */}
         <video

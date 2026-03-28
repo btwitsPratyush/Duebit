@@ -5,7 +5,7 @@ const WhatWeDoSection = () => {
   return (
     <section
       id="detailed-how-it-works"
-      className="relative z-10 px-6 py-24 md:py-32 bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden border-none"
+      className="relative z-10 px-6 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden border-none"
     >
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-red-500/5 rounded-full blur-[150px] pointer-events-none" />

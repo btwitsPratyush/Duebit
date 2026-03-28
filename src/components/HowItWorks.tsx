@@ -49,15 +49,15 @@ const HowItWorks = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" }
     }
   };
 
   return (
-    <section id="how-it-works" className="relative z-10 px-6 py-24 md:py-32 bg-[#F7F7F8] overflow-hidden border-t border-slate-200/50">
+    <section id="how-it-works" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden">
       <div className="container mx-auto max-w-6xl relative">
         <div className="text-center mb-24">
           <motion.div
@@ -83,7 +83,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -96,8 +96,8 @@ const HowItWorks = () => {
               variants={itemVariants}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
               className={`group relative bg-white p-8 rounded-[20px] border transition-all duration-300 flex flex-col items-center sm:items-start
-                ${step.highlight 
-                  ? 'border-slate-300 shadow-sm ring-1 ring-slate-100' 
+                ${step.highlight
+                  ? 'border-slate-300 shadow-sm ring-1 ring-slate-100'
                   : 'border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md'}`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300
@@ -116,10 +116,10 @@ const HowItWorks = () => {
 
               {step.highlight && (
                 <div className="absolute top-4 right-6">
-                   <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-50 border border-red-100 shadow-[0_0_10px_rgba(239,68,68,0.1)]">
-                      <div className="w-1 h-1 rounded-full bg-red-600 animate-pulse" />
-                      <span className="text-[8px] font-bold text-red-700 uppercase">Automation Active</span>
-                   </div>
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-50 border border-red-100 shadow-[0_0_10px_rgba(239,68,68,0.1)]">
+                    <div className="w-1 h-1 rounded-full bg-red-600 animate-pulse" />
+                    <span className="text-[8px] font-bold text-red-700 uppercase">Automation Active</span>
+                  </div>
                 </div>
               )}
             </motion.div>
