@@ -206,7 +206,7 @@ const WaitlistPage = () => {
                                             <Input
                                                 id="firm"
                                                 required
-                                                placeholder="LexBridge Partners"
+                                                placeholder="Mehta & Associates"
                                                 className="bg-white/[0.03] border-white/10 focus:border-[#9b2c2c]/40 focus:ring-1 focus:ring-[#9b2c2c]/20 h-12 text-white placeholder:text-white/20 transition-all duration-300 rounded-xl"
                                                 value={formData.firm}
                                                 onChange={handleChange}
@@ -220,7 +220,7 @@ const WaitlistPage = () => {
                                             id="email"
                                             type="email"
                                             required
-                                            placeholder="aarav@lexbridge.com"
+                                            placeholder="aarav@mehtaca.com"
                                             className="bg-white/[0.03] border-white/10 focus:border-[#9b2c2c]/40 focus:ring-1 focus:ring-[#9b2c2c]/20 h-12 text-white placeholder:text-white/20 transition-all duration-300 rounded-xl"
                                             value={formData.email}
                                             onChange={handleChange}
@@ -248,7 +248,6 @@ const WaitlistPage = () => {
                                                 </SelectTrigger>
                                                 <SelectContent className="bg-[#121215] border-white/10 text-white rounded-xl shadow-xl">
                                                     <SelectItem value="ca" className="focus:bg-white/10 focus:text-white cursor-pointer py-3">CA Firm</SelectItem>
-                                                    <SelectItem value="law" className="focus:bg-white/10 focus:text-white cursor-pointer py-3">Law Firm</SelectItem>
                                                     <SelectItem value="consultant" className="focus:bg-white/10 focus:text-white cursor-pointer py-3">Consultant</SelectItem>
                                                     <SelectItem value="other" className="focus:bg-white/10 focus:text-white cursor-pointer py-3">Other</SelectItem>
                                                 </SelectContent>

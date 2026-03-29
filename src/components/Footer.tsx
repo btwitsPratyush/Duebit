@@ -97,10 +97,10 @@ const Footer = () => {
                 </div>
               </Link>
               <h2 className="text-3xl sm:text-4xl font-bold text-white max-w-lg leading-[1.15] mb-6 font-display">
-                Automating legal & compliance workflows.
+                Automating compliance workflows.
               </h2>
               <p className="text-white/70 text-base max-w-sm leading-relaxed">
-                Built for the next generation of Chartered Accountants & Legal Firms.
+                Built for the next generation of Chartered Accountants.
               </p>
             </div>
 

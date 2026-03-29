@@ -15,7 +15,7 @@ const pricingPlans = [
         name: "Starter",
         price: "₹799",
         period: "/month",
-        tagline: "For solo CA/Law practitioners.",
+        tagline: "For solo CA practitioners.",
         subline: "Ideal for firms with up to 20 active clients.",
         features: [
             "Up to 20 Active Clients",
@@ -33,7 +33,7 @@ const pricingPlans = [
         name: "Professional",
         price: "₹1,499",
         period: "/month",
-        tagline: "Built for busy CA & Law teams.",
+        tagline: "Built for busy CA teams.",
         subline: "Best for firms managing 50+ clients.",
         features: [
             "Automated WhatsApp Doc Collection",
@@ -98,10 +98,6 @@ const faqs = [
     {
         question: "Is client data secure?",
         answer: "Yes. All data is securely stored, encrypted, and logged with an audit trail for every upload and reminder."
-    },
-    {
-        question: "Can I use Duebit for law firm workflows too?",
-        answer: "Yes. Duebit supports legal document workflows like evidence packs, notices, case filings, and client onboarding."
     }
 ];
 

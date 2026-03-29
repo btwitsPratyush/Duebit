@@ -18,7 +18,7 @@ const Index = () => {
         <Hero
           title="Stop chasing clients"
           subtitle="for documents"
-          description="WhatsApp-first document collection + email reminders for CA & law firms."
+          description="The operating system for compliance-led firms. Automate document collection, follow-ups, and client communication workflows."
           ctaLabel="Book Demo"
           ctaHref="https://cal.com/duebit-demo/30min"
         />

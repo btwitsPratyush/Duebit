@@ -2,7 +2,7 @@ import { Check, Clock, FileText, Download, MessageSquare } from "lucide-react";
 
 const clients = [
   { name: "Sharma Industries", status: "3/5 docs", color: "text-yellow-400" },
-  { name: "Kapoor Legal LLP", status: "Complete", color: "text-green-400" },
+  { name: "Kapoor & Associates", status: "Complete", color: "text-green-400" },
   { name: "Mehta Consultants", status: "1/4 docs", color: "text-primary" },
 ];
 

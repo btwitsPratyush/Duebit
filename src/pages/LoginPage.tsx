@@ -155,7 +155,7 @@ const LoginPage = () => {
                             Automate follow-ups, docs & deadlines.
                         </p>
                         <p className="text-sm text-slate-300 font-medium tracking-wider uppercase opacity-90">
-                            Built for modern CA & law firms
+                            Built for modern Chartered Accountants
                         </p>
                     </div>
                 </div>
