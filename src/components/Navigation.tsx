@@ -16,8 +16,8 @@ export interface NavigationProps {
 }
 
 export function Navigation({
-    ctaLabel = "Join Waitlist",
-    ctaHref = "/waitlist",
+    ctaLabel = "Book Demo",
+    ctaHref = "https://cal.com/duebit-demo/30min",
     onCtaClick,
     dark = false,
 }: NavigationProps) {
@@ -99,7 +99,7 @@ export function Navigation({
                         variant="maroon"
                         className="px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
                     >
-                        <Link href={ctaHref || "/waitlist"}>
+                        <Link href={ctaHref || "https://cal.com/duebit-demo/30min"}>
                             {ctaLabel}
                         </Link>
                     </Button>

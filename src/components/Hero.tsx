@@ -16,8 +16,8 @@ export function Hero({
     title,
     subtitle,
     description,
-    ctaLabel = "Join Waitlist",
-    ctaHref = "/waitlist",
+    ctaLabel = "Book Demo",
+    ctaHref = "https://cal.com/duebit-demo/30min",
     onCtaClick,
 }: HeroProps) {
     return (
@@ -71,7 +71,7 @@ export function Hero({
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="flex flex-wrap items-center justify-center gap-4 mb-1"
                 >
-                    <Link href={ctaHref || "/waitlist"} aria-label={ctaLabel}>
+                    <Link href={ctaHref || "https://cal.com/duebit-demo/30min"} aria-label={ctaLabel}>
                         <LiquidCtaButton theme="dark" showArrow={false}>
                             {ctaLabel}
                         </LiquidCtaButton>

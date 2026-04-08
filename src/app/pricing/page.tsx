@@ -29,7 +29,7 @@ const pricingPlans = [
         cta: "Start Free Trial",
         variant: "outline",
         popular: false,
-        link: "/waitlist"
+        link: "https://cal.com/duebit-demo/30min"
     },
     {
         name: "Professional",
@@ -50,7 +50,7 @@ const pricingPlans = [
         cta: "Get Started",
         variant: "default",
         popular: true,
-        link: "/waitlist"
+        link: "https://cal.com/duebit-demo/30min"
     },
     {
         name: "Enterprise",

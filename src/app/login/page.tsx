@@ -18,7 +18,7 @@ export default function LoginPage() {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         toast.info("Preparing for takeoff. Public logins are currently disabled. 🚀", {
-            description: "See you on the waitlist!",
+            description: "Book a demo to access your dashboard.",
             duration: 4000,
         });
     };
@@ -94,7 +94,7 @@ export default function LoginPage() {
                     </form>
 
                     <div className="mt-6 text-center text-xs text-slate-500 font-medium">
-                        Not a customer? <Link href="/waitlist" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Join Waitlist</Link>
+                        Not a customer? <Link href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Book a Demo</Link>
                     </div>
                 </div>
             </div>
