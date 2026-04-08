@@ -26,7 +26,7 @@ const features = [
 
 const SecuritySection = () => {
     return (
-        <section className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden">
+        <section className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
             {/* Grid Pattern - Exact same as requested */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none"

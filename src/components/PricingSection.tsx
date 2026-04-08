@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { Check, Lock, FileText, ShieldCheck, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { LiquidCtaButton } from "@/components/ui/LiquidCtaButton";
 import { LiquidMetalBorder } from "@/components/ui/LiquidMetalBorder";
@@ -143,7 +145,7 @@ const PricingSection = () => {
   const [billingCycle, setBillingCycle] = React.useState<"monthly" | "annual">("monthly");
 
   return (
-    <section id="pricing" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 text-foreground font-sans overflow-hidden">
+    <section id="pricing" className="relative z-10 py-20 md:py-[120px] bg-white text-foreground font-sans overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -263,7 +265,7 @@ const PricingSection = () => {
                 {plan.external ? (
                   <a href={plan.link} target="_blank" rel="noopener noreferrer">{plan.cta}</a>
                 ) : (
-                  <Link to={plan.link}>{plan.cta}</Link>
+                  <Link href={plan.link}>{plan.cta}</Link>
                 )}
               </Button>
             </motion.div>
@@ -279,7 +281,7 @@ const PricingSection = () => {
         >
           <LiquidMetalBorder
             theme="dark"
-            backgroundColor="#050505"
+            backgroundColor="#0c0c0c"
             borderRadius={48}
             borderWidth={1.5}
             speed={0.6}
@@ -298,7 +300,7 @@ const PricingSection = () => {
               <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
               {/* Central radial fade for the grid */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,#050505_100%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,#0c0c0c_100%)] pointer-events-none" />
 
               <div className="relative z-10 flex flex-col items-center w-full">
                 <motion.div
@@ -313,7 +315,7 @@ const PricingSection = () => {
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
                   Not sure which plan fits?
                 </h3>
-                <p className="text-slate-400 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
+                <p className="text-white/60 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
                   Book a 30-minute demo call and we’ll show you the exact workflow tailored for your firm.
                 </p>
 
@@ -350,7 +352,7 @@ const PricingSection = () => {
               <AccordionItem
                 key={idx}
                 value={`item-${idx}`}
-                className="group border-none rounded-2xl bg-white dark:bg-zinc-900/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-0.5"
+                className="group border border-slate-200 rounded-2xl bg-white shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 overflow-hidden"
               >
                 <AccordionTrigger className="hover:no-underline py-6 px-6 text-base font-bold text-left text-foreground/80 group-data-[state=open]:text-primary transition-colors">
                   <div className="flex items-center gap-4">

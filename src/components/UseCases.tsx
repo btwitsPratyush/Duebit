@@ -39,7 +39,7 @@ const cases = [
 
 const UseCases = () => {
   return (
-    <section className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50">
+    <section className="relative z-10 py-20 md:py-[120px] bg-white">
       <div className="container mx-auto max-w-6xl px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <motion.div

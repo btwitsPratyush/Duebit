@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -20,7 +23,7 @@ export function Navigation({
 }: NavigationProps) {
     const [scrolled, setScrolled] = useState(false);
     const [visible, setVisible] = useState(true);
-    const location = useLocation();
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,11 +61,11 @@ export function Navigation({
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const isHome = location.pathname === "/";
+    const isHome = pathname === "/";
     const textColor = scrolled || dark ? "text-slate-900" : "text-white";
     const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-white/70 hover:text-white";
-    const borderColor = scrolled || dark ? "border-black/10" : "border-white/10";
-    const bgColor = scrolled ? "bg-white/80 backdrop-blur-xl shadow-md" : dark ? "bg-black/5 backdrop-blur-md" : "bg-white/10 backdrop-blur-md";
+    const borderColor = scrolled || dark ? "border-slate-200" : "border-white/10";
+    const bgColor = scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm border-slate-200" : "bg-white/5 backdrop-blur-md";
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-6 py-6 pointer-events-none">
@@ -76,7 +79,7 @@ export function Navigation({
                 className={`flex items-center justify-between w-full max-w-[1300px] gap-2 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
             >
                 {/* Left: Branding */}
-                <Link to="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
+                <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
                     <span className={`font-display font-bold text-lg sm:text-xl tracking-tight transition-colors duration-300 ${textColor}`}>
                         Duebit
                     </span>
@@ -85,7 +88,7 @@ export function Navigation({
                 {/* Right: Actions */}
                 <div className="flex items-center gap-1.5 sm:gap-3">
                     <Link
-                        to="/login"
+                        href="/login"
                         className={`inline-block text-[11px] sm:text-sm font-medium transition-colors duration-300 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
                     >
                         Log in
@@ -96,12 +99,13 @@ export function Navigation({
                         variant="maroon"
                         className="px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
                     >
-                        <a href={ctaHref} target={ctaHref?.startsWith("http") ? "_blank" : undefined} rel={ctaHref?.startsWith("http") ? "noopener noreferrer" : undefined}>
+                        <Link href={ctaHref || "/waitlist"}>
                             {ctaLabel}
-                        </a>
+                        </Link>
                     </Button>
                 </div>
             </motion.div>
         </nav>
     );
 }
+

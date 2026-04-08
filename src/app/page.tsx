@@ -1,3 +1,5 @@
+"use client";
+
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import ProductInAction from "@/components/ProductInAction";
@@ -10,9 +12,9 @@ import WhatWeDoSection from "@/components/WhatWeDoSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+export default function Home() {
   return (
-    <div className="relative min-h-screen noise-overlay font-sans selection:bg-primary/20 selection:text-primary bg-[#050000]">
+    <div className="relative min-h-screen noise-overlay font-sans selection:bg-primary/20 selection:text-primary bg-white">
       <Navigation ctaLabel="Get in Touch" ctaHref="https://cal.com/duebit-demo/30min" />
       <main>
         <Hero
@@ -34,6 +36,4 @@ const Index = () => {
       <Footer />
     </div>
   );
-};
-
-export default Index;
+}

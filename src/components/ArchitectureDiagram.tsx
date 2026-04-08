@@ -260,9 +260,9 @@ export const ArchitectureDiagram = () => {
                   {phase === 3 ? 'Completed' : 'Live Sync'}
                 </div>
               </div>
-              <p className="text-xs text-slate-400 font-bold uppercase tracking-widest flex items-center gap-2">
+              <div className="text-xs text-slate-400 font-bold uppercase tracking-widest flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Due in 4 days
-              </p>
+              </div>
             </div>
 
             {/* Checklist Core */}

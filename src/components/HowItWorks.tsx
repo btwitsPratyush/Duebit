@@ -57,7 +57,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden">
+    <section id="how-it-works" className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
       <div className="container mx-auto max-w-6xl relative">
         <div className="text-center mb-24">
           <motion.div

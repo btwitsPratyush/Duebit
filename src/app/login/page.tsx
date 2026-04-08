@@ -1,14 +1,14 @@
+"use client";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import AuroraBackground from "@/components/AuroraBackground";
 import { toast } from "sonner";
 
-const LoginPage = () => {
+export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,7 @@ const LoginPage = () => {
 
                 <div className="max-w-md w-full mx-auto mt-0 animate-fade-in-up md:-translate-y-8">
                     <div className="mb-10 text-center">
-                        <Link to="/" className="inline-flex items-center gap-3 mb-10 group">
+                        <Link href="/" className="inline-flex items-center gap-3 mb-10 group">
                             <div className="bg-white rounded-2xl p-2 shadow-sm border border-slate-100 transition-all duration-300 group-hover:scale-105">
                                 <img src="/logo.png" alt="Duebit" className="h-10 w-auto object-contain" />
                             </div>
@@ -94,7 +94,7 @@ const LoginPage = () => {
                     </form>
 
                     <div className="mt-6 text-center text-xs text-slate-500 font-medium">
-                        Not a customer? <Link to="/waitlist" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Join Waitlist</Link>
+                        Not a customer? <Link href="/waitlist" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Join Waitlist</Link>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,4 @@ const LoginPage = () => {
             </div>
         </div>
     );
-};
-
-export default LoginPage;
+}

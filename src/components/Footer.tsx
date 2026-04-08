@@ -1,5 +1,5 @@
 import { Github, Twitter, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="relative z-10 overflow-hidden footer-and-cta">
       {/* Fancy red section - brand classy red */}
       {/* Fancy red section - brand classy red */}
-      <div className="relative border-t border-red-900/40 shadow-[0_-8px_30px_rgba(220,38,38,0.25)] overflow-hidden bg-black">
-        {/* Deep red gradient base (brand-deep tokens) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0505] via-[#2a0a0a] to-black" />
+      <div className="relative border-t border-white/10 overflow-hidden bg-[#1a0505]">
+        {/* Deep maroon-toned dark gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0505] via-[#2d0a0a] to-[#1a0505]" />
 
         {/* Top LED Strip effect */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-80 blur-[2px]" />
@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
             {/* Brand Column - duebit jahan tha wahi */}
             <div className="md:col-span-5 lg:col-span-6">
-              <Link to="/" className="inline-flex items-center gap-3 mb-8 group transition-opacity">
+              <Link href="/" className="inline-flex items-center gap-3 mb-8 group transition-opacity">
                 <div className="bg-white rounded-2xl p-2 shadow-xl shadow-black/30 border border-white/5 transition-transform duration-500 group-hover:scale-105">
                   <img src="/logo.png" alt="Duebit" className="h-10 w-auto object-contain" />
                 </div>
@@ -111,7 +111,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   <li><a href="#features" className="text-white/70 hover:text-white transition-colors text-sm">Features</a></li>
                   <li><a href="#how-it-works" className="text-white/70 hover:text-white transition-colors text-sm">How it Works</a></li>
-                  <li><Link to="/pricing" className="text-white/70 hover:text-white transition-colors text-sm">Pricing</Link></li>
+                  <li><Link href="/pricing" className="text-white/70 hover:text-white transition-colors text-sm">Pricing</Link></li>
                   <li><a href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors text-sm">Book Demo</a></li>
                 </ul>
               </div>

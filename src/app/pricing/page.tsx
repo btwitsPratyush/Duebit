@@ -1,3 +1,5 @@
+"use client";
+
 import { Navigation } from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Check, Lock, FileText, ShieldCheck } from "lucide-react";
@@ -8,7 +10,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const pricingPlans = [
     {
@@ -101,7 +103,7 @@ const faqs = [
     }
 ];
 
-const PricingPage = () => {
+export default function PricingPage() {
     return (
         <div className="min-h-screen bg-white text-foreground font-sans selection:bg-red-500/20">
             <Navigation dark />
@@ -173,7 +175,7 @@ const PricingPage = () => {
                                     {plan.external ? (
                                         <a href={plan.link} target="_blank" rel="noopener noreferrer">{plan.cta}</a>
                                     ) : (
-                                        <Link to={plan.link}>{plan.cta}</Link>
+                                        <Link href={plan.link}>{plan.cta}</Link>
                                     )}
                                 </Button>
                             </div>
@@ -186,6 +188,7 @@ const PricingPage = () => {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-red-700/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-red-700/10 transition-colors duration-500"></div>
                             <div className="relative z-10">
                                 <h3 className="text-2xl font-bold text-slate-900 mb-3">Not sure which plan fits?</h3>
+                                find it or Book a 10-minute demo call and we’ll show you the exact workflow tailored for your firm.
                                 <p className="text-slate-500 mb-8 max-w-xl mx-auto">
                                     Book a 10-minute demo call and we’ll show you the exact workflow tailored for your firm.
                                 </p>
@@ -237,6 +240,4 @@ const PricingPage = () => {
             <Footer />
         </div>
     );
-};
-
-export default PricingPage;
+}

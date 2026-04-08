@@ -41,9 +41,9 @@ const Wave = ({
 
 export default function HeroBackground() {
     return (
-        <div className="absolute inset-0 z-0 bg-[#050000] overflow-hidden">
-            {/* Background Base */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#050000] via-[#0a0000] to-[#050000]" />
+        <div className="absolute inset-0 z-0 bg-[#1a0505] overflow-hidden">
+            {/* Deep Maroon Gradient Base */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a0505] via-[#2d0a0a] to-[#1a0505]" />
 
             <svg
                 viewBox="0 0 1440 800"
@@ -68,7 +68,7 @@ export default function HeroBackground() {
                     points="M0,200 C480,400 960,0 1440,200 V800 H0 Z"
                 />
 
-                {/* Silver Accent Wave - Flow 1 */}
+                {/* Silver Accent Wave */}
                 <Wave
                     color="#E5E4E2"
                     opacity={0.08}
@@ -77,22 +77,13 @@ export default function HeroBackground() {
                     points="M0,240 C320,100 720,500 1440,240 V800 H0 Z"
                 />
 
-                {/* Deep Shadow Wave */}
+                {/* Shadow Wave */}
                 <Wave
                     color="#000000"
                     opacity={0.6}
                     duration={20}
                     delay={3}
                     points="M0,280 C640,480 1280,180 1440,280 V800 H0 Z"
-                />
-
-                {/* Silver Reflection Wave - Flow 2 */}
-                <Wave
-                    color="#D1D5DB"
-                    opacity={0.05}
-                    duration={25}
-                    delay={4}
-                    points="M0,320 C480,200 960,600 1440,320 V800 H0 Z"
                 />
             </svg>
 
@@ -104,8 +95,7 @@ export default function HeroBackground() {
                 }}
             />
 
-            {/* Bottom Fade to ensure smoothness into next sections */}
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050000] to-transparent" />
+            {/* Bottom Fade Removed as requested */}
         </div>
     );
 }

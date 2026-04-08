@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,11 +13,10 @@ import {
 import { Loader2, ArrowRight, ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import WaitlistBackground from "@/components/WaitlistBackground";
 
-const WaitlistPage = () => {
+export default function WaitlistPage() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -93,15 +94,13 @@ const WaitlistPage = () => {
         <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#050505] font-sans text-white selection:bg-red-900/30 selection:text-red-200">
 
             {/* 1. Background Animation (R3F) */}
-            <div className="absolute inset-0 z-0 opacity-80">
-                <WaitlistBackground />
-            </div>
+            <div className="absolute inset-0 z-0 opacity-80 bg-black/50" />
 
             {/* Grain Overlay */}
             <div className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
 
             {/* Back Button */}
-            <Link to="/" className="hidden sm:flex absolute top-8 left-8 items-center gap-2 text-slate-400 hover:text-white transition-colors z-20 group">
+            <Link href="/" className="hidden sm:flex absolute top-8 left-8 items-center gap-2 text-slate-400 hover:text-white transition-colors z-20 group">
                 <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
                 </div>
@@ -177,7 +176,7 @@ const WaitlistPage = () => {
                                         We've reserved your spot. We'll reach out on your email as soon as we're ready to onboard your firm.
                                     </p>
                                     <Button variant="ghost" className="text-slate-400 hover:text-white hover:bg-white/5" asChild>
-                                        <Link to="/">Back to Home</Link>
+                                        <Link href="/">Back to Home</Link>
                                     </Button>
                                 </motion.div>
                             ) : (
@@ -295,6 +294,4 @@ const WaitlistPage = () => {
             </div>
         </div>
     );
-};
-
-export default WaitlistPage;
+}

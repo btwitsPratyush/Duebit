@@ -56,7 +56,7 @@ const ProductInAction = () => {
   }, []);
 
   return (
-    <section id="product-in-action" className="relative z-10 py-20 md:py-[120px] bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden">
+    <section id="product-in-action" className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
