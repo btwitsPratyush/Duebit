@@ -29,8 +29,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    /* Brand Deep Red */
-    --primary: 0 72% 42%;
+    /* Brand Maroon */
+    --primary: 0 63% 31%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -39,30 +39,30 @@
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 0 72% 96%;
-    --accent-foreground: 0 72% 42%;
+    --accent: 0 63% 96%;
+    --accent-foreground: 0 63% 31%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 0 72% 42%;
+    --ring: 0 63% 31%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 5%;
-    --sidebar-primary: 0 72% 42%;
+    --sidebar-primary: 0 63% 31%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 72% 96%;
-    --sidebar-accent-foreground: 0 72% 42%;
+    --sidebar-accent: 0 63% 96%;
+    --sidebar-accent-foreground: 0 63% 31%;
     --sidebar-border: 0 0% 92%;
-    --sidebar-ring: 0 72% 42%;
+    --sidebar-ring: 0 63% 31%;
 
     /* Custom tokens */
-    --glow-primary: 0 72% 42%;
-    --glow-accent: 0 72% 60%;
+    --glow-primary: 0 63% 31%;
+    --glow-accent: 0 63% 60%;
     --surface-glass: 0 0% 0% / 0.03;
 
     /* Brand premium deep grey */
@@ -70,10 +70,10 @@
     --brand-deep-mid: #1a1a1a;
     --brand-deep-dark: #0c0c0c;
 
-    /* Aurora Colors - Deep Red Spectrum */
-    --aurora-1: 0 72% 42%;
-    --aurora-2: 0 84% 60%;
-    --aurora-3: 0 72% 30%;
+    /* Aurora Colors - Brand Maroon Spectrum */
+    --aurora-1: 0 63% 31%;
+    --aurora-2: 0 63% 50%;
+    --aurora-3: 0 63% 20%;
   }
 
   /* Dark Theme Forced Light-ish for consistency */
@@ -87,7 +87,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    --primary: 0 72% 42%;
+    --primary: 0 63% 31%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;

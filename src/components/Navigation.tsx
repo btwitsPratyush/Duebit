@@ -22,37 +22,18 @@ export function Navigation({
     dark = false,
 }: NavigationProps) {
     const [scrolled, setScrolled] = useState(false);
-    const [visible, setVisible] = useState(true);
     const pathname = usePathname();
+
+    const navItems = [
+        { name: "Features", href: "/#features" },
+        { name: "Solutions", href: "/#use-cases" },
+        { name: "Docs", href: "/docs" },
+        { name: "Pricing", href: "/pricing" },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            setScrolled(currentScrollY > 20);
-
-            // Hide navbar when reaching the Features section ("Everything you need.")
-            const featuresSection = document.getElementById("features");
-            const finalCtaSection = document.getElementById("final-cta-section");
-
-            let isVisible = true;
-
-            // 1. Hide if we are at or below the features section
-            if (featuresSection) {
-                const rect = featuresSection.getBoundingClientRect();
-                if (rect.top <= 100) {
-                    isVisible = false;
-                }
-            }
-
-            // 2. Also hide when approaching the Final CTA section
-            if (finalCtaSection) {
-                const rect = finalCtaSection.getBoundingClientRect();
-                if (rect.top <= 100) {
-                    isVisible = false;
-                }
-            }
-
-            setVisible(isVisible);
+            setScrolled(window.scrollY > 10);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -64,48 +45,52 @@ export function Navigation({
     const isHome = pathname === "/";
     const textColor = scrolled || dark ? "text-slate-900" : "text-white";
     const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-white/70 hover:text-white";
+
+    // Clean subtle bottom border
     const borderColor = scrolled || dark ? "border-slate-200" : "border-white/10";
-    const bgColor = scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm border-slate-200" : "bg-white/5 backdrop-blur-md";
+    // Standard frosting
+    const bgColor = scrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent";
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-6 py-6 pointer-events-none">
-            <motion.div
-                initial={{ y: -20, opacity: 0 }}
-                animate={{
-                    y: visible ? 0 : -100,
-                    opacity: visible ? 1 : 0
-                }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className={`flex items-center justify-between w-full max-w-[1300px] gap-2 sm:gap-8 px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-colors duration-500 pointer-events-auto border ${bgColor} ${borderColor}`}
-            >
-                {/* Left: Branding */}
-                <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
-                    <span className={`font-display font-bold text-lg sm:text-xl tracking-tight transition-colors duration-300 ${textColor}`}>
-                        Duebit
-                    </span>
-                </Link>
-
-                {/* Right: Actions */}
-                <div className="flex items-center gap-1.5 sm:gap-3">
-                    <Link
-                        href="/login"
-                        className={`inline-block text-[11px] sm:text-sm font-medium transition-colors duration-300 px-3 sm:px-6 py-1.5 sm:py-2 rounded-full border ${scrolled || dark ? 'border-slate-300' : 'border-white/30'} ${linkColor}`}
-                    >
-                        Log in
-                    </Link>
-
-                    <Button
-                        asChild
-                        variant="maroon"
-                        className="px-4 sm:px-6 py-1.5 sm:py-2 h-auto text-[11px] sm:text-sm"
-                    >
-                        <Link href={ctaHref || "https://cal.com/duebit-demo/30min"}>
-                            {ctaLabel}
+        <header className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
+            ? "top-6 left-6 right-6"
+            : "top-0 left-0 right-0"
+            }`}>
+            <nav className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
+                ? "bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-lg max-w-[1200px]"
+                : "bg-transparent max-w-[1400px] border-b border-transparent"
+                }`}>
+                <div className="flex items-center justify-between w-full mx-auto px-8 lg:px-10 h-16">
+                    {/* Left side: Logo */}
+                    <div className="flex-1 flex justify-start">
+                        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
+                            <span className={`font-display font-bold transition-colors duration-300 ${textColor} ${scrolled ? "text-[24px]" : "text-[28px]"}`}>
+                                Duebit
+                            </span>
                         </Link>
-                    </Button>
+                    </div>
+
+                    {/* Right side: Actions */}
+                    <div className="flex-1 flex items-center justify-end gap-5">
+                        <Link
+                            href="/login"
+                            className={`text-[13px] font-medium transition-colors ${linkColor}`}
+                        >
+                            Login
+                        </Link>
+
+                        <Button
+                            asChild
+                            className="h-10 px-8 rounded-full border border-white/40 bg-transparent text-white hover:bg-white/10 shadow-lg text-[13px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                        >
+                            <Link href={ctaHref || "https://cal.com/duebit-demo/30min"}>
+                                {ctaLabel}
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
-            </motion.div>
-        </nav>
+            </nav>
+        </header>
     );
 }
 

@@ -55,7 +55,7 @@ const pricingPlans = [
       "Activity logs",
       "Up to 3 team members",
     ],
-    cta: "Get Started",
+    cta: "Get in Touch",
     variant: "outline",
     popular: false,
     link: "https://cal.com/duebit-demo/30min",
@@ -102,7 +102,7 @@ const pricingPlans = [
       "Custom onboarding support",
       "Priority support",
     ],
-    cta: "Get Started",
+    cta: "Get in Touch",
     variant: "outline",
     popular: false,
     link: "https://cal.com/duebit-demo/30min",
@@ -255,9 +255,9 @@ const PricingSection = () => {
               </div>
 
               <Button
-                className={`w-full font-bold rounded-xl h-12 text-sm transition-all duration-300 ${plan.popular
-                  ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl shadow-primary/20 hover:scale-[1.02]'
-                  : 'bg-transparent text-foreground border-2 border-border hover:border-primary/50 hover:bg-primary/5'
+                className={`w-full font-bold rounded-full h-11 text-[13px] transition-all duration-300 ${plan.popular
+                  ? 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'
+                  : 'bg-transparent text-foreground border border-border hover:border-slate-300 hover:bg-slate-50/50'
                   }`}
                 size="lg"
                 asChild
@@ -308,7 +308,7 @@ const PricingSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md"
                 >
-                  <RefreshCw className="w-3.5 h-3.5 text-red-500 animate-spin-slow" />
+                  <RefreshCw className="w-3.5 h-3.5 text-primary animate-spin-slow" />
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.4em]">Personalized Review</span>
                 </motion.div>
 
@@ -327,7 +327,7 @@ const PricingSection = () => {
                   </a>
 
                   <div className="flex flex-col items-center gap-2 opacity-30">
-                    <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+                    <div className="h-[1px] w-12 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                     <p className="text-[9px] font-bold text-white uppercase tracking-[0.8em]">
                       Precision Engineering
                     </p>

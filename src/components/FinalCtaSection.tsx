@@ -20,7 +20,7 @@ const FinalCtaSection = () => {
       <div className="px-6 py-20 sm:py-24 container mx-auto max-w-4xl text-center relative z-10">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-display tracking-tight leading-[1.1]">
           Too many clients,  <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1C1C] via-[#B91C1C] to-[#7A1C1C] animate-shimmer bg-[length:200%_100%] drop-shadow-[0_4px_12px_rgba(185,28,28,0.4)]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7f1d1d] via-[#942020] to-[#7f1d1d] animate-shimmer bg-[length:200%_100%] drop-shadow-[0_4px_12px_rgba(127,29,29,0.4)]">
             Too many follow-ups?
           </span>
         </h2>

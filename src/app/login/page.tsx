@@ -38,7 +38,7 @@ export default function LoginPage() {
                             <span className="text-3xl font-display font-bold text-slate-900 tracking-tight">Duebit</span>
                         </Link>
                         <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Welcome back!</h2>
-                        <p className="text-sm text-slate-500 mt-2 font-normal opacity-80">Sign in to manage clients & deadlines.</p>
+                        <p className="text-sm text-slate-500 mt-2 font-normal opacity-80">Login to manage clients & deadlines.</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-5">
@@ -49,7 +49,7 @@ export default function LoginPage() {
                                 type="email"
                                 required
                                 placeholder="you@example.com"
-                                className="h-10 bg-white border-slate-200 focus-visible:ring-red-600 text-sm placeholder:text-slate-400"
+                                className="h-10 bg-white border-slate-200 focus-visible:ring-primary text-sm placeholder:text-slate-400"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -58,7 +58,7 @@ export default function LoginPage() {
                         <div className="space-y-1.5">
                             <div className="flex justify-between items-center">
                                 <Label htmlFor="password" className="text-slate-700 text-sm font-semibold">Password</Label>
-                                <a href="#" className="text-xs font-medium text-slate-500 hover:text-red-700 transition-colors">Forgot password?</a>
+                                <a href="#" className="text-xs font-medium text-slate-500 hover:text-primary transition-colors">Forgot password?</a>
                             </div>
                             <div className="relative">
                                 <Input
@@ -86,15 +86,15 @@ export default function LoginPage() {
 
                         <Button
                             type="submit"
-                            className="w-full h-11 bg-red-800 hover:bg-red-900 text-white font-bold text-sm rounded-md shadow-md hover:shadow-lg hover:shadow-red-900/20 shadow-slate-200 transition-all mt-4 tracking-wide"
+                            className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-bold text-sm rounded-md shadow-md hover:shadow-lg hover:shadow-primary/20 shadow-slate-200 transition-all mt-4 tracking-wide"
                             disabled={isLoading}
                         >
-                            {isLoading ? "Signing in..." : "Sign in"}
+                            {isLoading ? "Logging in..." : "Login"}
                         </Button>
                     </form>
 
                     <div className="mt-6 text-center text-xs text-slate-500 font-medium">
-                        Not a customer? <Link href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-red-700 hover:text-red-800 font-semibold inline-flex items-center transition-colors">Book a Demo</Link>
+                        Not a customer? <Link href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-semibold inline-flex items-center transition-colors">Book a Demo</Link>
                     </div>
                 </div>
             </div>
@@ -108,8 +108,8 @@ export default function LoginPage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0b0b0f] via-[#1a0505] to-[#2a0a0a] opacity-90 transition-all duration-1000"></div>
 
                     {/* Periwinkle Glow replaced with Red Glow */}
-                    <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-red-600/20 blur-[120px] rounded-full mix-blend-screen animate-pulse"></div>
-                    <div className="absolute bottom-0 -left-20 w-[500px] h-[500px] bg-red-900/40 blur-[100px] rounded-full mix-blend-screen"></div>
+                    <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/20 blur-[120px] rounded-full mix-blend-screen animate-pulse"></div>
+                    <div className="absolute bottom-0 -left-20 w-[500px] h-[500px] bg-primary/40 blur-[100px] rounded-full mix-blend-screen"></div>
 
                     {/* Abstract Pattern / Noise Overlay */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
@@ -149,7 +149,7 @@ export default function LoginPage() {
                         Duebit
                     </h2>
                     <div className="space-y-6">
-                        <div className="w-20 h-1.5 bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto rounded-full opacity-80"></div>
+                        <div className="w-20 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full opacity-80"></div>
 
                         <p className="text-lg text-slate-300 font-medium max-w-sm mx-auto leading-relaxed tracking-wide opacity-90">
                             Automate follow-ups, docs & deadlines.
@@ -162,9 +162,9 @@ export default function LoginPage() {
 
                 {/* Floating Abstract Element */}
                 <div className="absolute bottom-10 right-10 flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
-                    <div className="w-2 h-2 rounded-full bg-red-600/50"></div>
-                    <div className="w-2 h-2 rounded-full bg-red-600/20"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary/50"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary/20"></div>
                 </div>
             </div>
         </div>

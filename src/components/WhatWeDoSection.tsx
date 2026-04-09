@@ -8,7 +8,7 @@ const WhatWeDoSection = () => {
       className="relative z-10 px-6 py-20 md:py-[120px] bg-white overflow-hidden border-none"
     >
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-red-500/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
 
@@ -52,7 +52,7 @@ const WhatWeDoSection = () => {
           {/* Subtle Grid Indicator */}
           <div className="absolute bottom-10 right-10 hidden lg:block">
              <div className="flex gap-1">
-                {[1, 2, 3].map(i => <div key={i} className="w-1 h-3 bg-red-100 rounded-full" />)}
+                {[1, 2, 3].map(i => <div key={i} className="w-1 h-3 bg-primary/20 rounded-full" />)}
              </div>
           </div>
         </motion.div>

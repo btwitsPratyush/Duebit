@@ -47,7 +47,7 @@ const pricingPlans = [
             "Team Access (3 Users)",
             "Email + WhatsApp Reminders",
         ],
-        cta: "Get Started",
+        cta: "Get in Touch",
         variant: "default",
         popular: true,
         link: "https://cal.com/duebit-demo/30min"
@@ -165,9 +165,9 @@ export default function PricingPage() {
                                 </div>
 
                                 <Button
-                                    className={`w-full font-bold rounded-full h-12 ${plan.popular
-                                        ? 'bg-red-800 hover:bg-red-900 text-white shadow-xl shadow-red-900/20'
-                                        : 'bg-white text-slate-900 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                                    className={`w-full font-bold rounded-full h-11 text-[13px] ${plan.popular
+                                        ? 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'
+                                        : 'bg-white text-slate-900 border border-slate-200 hover:bg-slate-50'
                                         }`}
                                     size="lg"
                                     asChild

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Playfair_Display, Pinyon_Script, Instrument_Serif } from "next/font/google";
+import { Inter, Outfit, Playfair_Display, Pinyon_Script, Instrument_Serif, JetBrains_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
@@ -15,6 +15,14 @@ const instrument = Instrument_Serif({
   weight: "400",
   subsets: ["latin"], 
   variable: "--font-instrument" 
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains"
+});
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument-sans"
 });
 
 export const metadata: Metadata = {
@@ -56,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} antialiased`}
+        className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} ${jetbrains.variable} ${instrumentSans.variable} antialiased`}
       >
         <Providers>
           {children}

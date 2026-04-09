@@ -1,7 +1,7 @@
 "use client";
 
-import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
+import { SaasNavigation } from "@/components/saas-hero/saas-navigation";
+import { SaasHeroSection } from "@/components/saas-hero/saas-hero-section";
 import ProductInAction from "@/components/ProductInAction";
 import HowItWorks from "@/components/HowItWorks";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -14,15 +14,21 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen noise-overlay font-sans selection:bg-primary/20 selection:text-primary bg-white">
-      <Navigation ctaLabel="Get in Touch" ctaHref="https://cal.com/duebit-demo/30min" />
+    <div className="relative min-h-screen font-sans selection:bg-white selection:text-black">
+      <SaasNavigation
+        brand="DUEBIT"
+        navLinks={[]}
+        ctaLabel="Get in Touch"
+      />
       <main>
-        <Hero
-          title="Stop chasing clients"
-          subtitle="for documents"
-          description="The operating system for compliance-led firms. Automate document collection, follow-ups, and client communication workflows."
-          ctaLabel="Book Demo"
-          ctaHref="https://cal.com/duebit-demo/30min"
+        <SaasHeroSection
+          eyebrow="Documents Collection on Autopilot."
+          headlineMain="Stop"
+          headlineHighlightWords={[
+            "chasing clients for documents",
+            "following up for every file"
+          ]}
+          gradientColors={["#ffffff", "#94a3b8", "#ffffff"]}
         />
         <ProductInAction />
         <HowItWorks />
