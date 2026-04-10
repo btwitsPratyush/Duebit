@@ -26,15 +26,15 @@ const Node = ({ icon: Icon, label, active, pulse }: { icon: any; label: string; 
     className="flex flex-col items-center gap-1.5"
   >
     <div className={`w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-[1.25rem] flex items-center justify-center transition-all duration-500 relative
-      ${active 
-        ? 'bg-white shadow-lg md:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border-slate-200 md:border-slate-100' 
+      ${active
+        ? 'bg-white shadow-lg md:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border-slate-200 md:border-slate-100'
         : 'bg-slate-50 border-slate-100 md:bg-white/[0.2] md:border-white/20'} border-2 md:border relative overflow-hidden group`}>
-      
+
       {/* Desktop-only subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity pointer-events-none" />
-      
+
       <Icon className={`w-4 h-4 md:w-6 md:h-6 transition-colors duration-500 relative z-10 ${active ? 'text-slate-900' : 'text-slate-400'}`} />
-      
+
       {active && pulse && (
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0, 0.3] }}
@@ -53,7 +53,7 @@ const ConnectionLine = ({ d, active, color = COLORS.active }: { d: string; activ
   <g className="overflow-visible pointer-events-none">
     {/* Base faded line */}
     <path d={d} fill="none" stroke={COLORS.border} strokeWidth="1.5" strokeLinecap="round" opacity="0.3" />
-    
+
     {/* Active glowing line */}
     {active && (
       <>
@@ -66,7 +66,7 @@ const ConnectionLine = ({ d, active, color = COLORS.active }: { d: string; activ
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          style={{ 
+          style={{
             filter: 'drop-shadow(0 0 4px rgba(59,130,246,0.3))'
           }}
         />
@@ -121,11 +121,11 @@ export const ArchitectureDiagram = () => {
 
   return (
     <div className="w-full relative px-4 md:px-12 py-10 md:py-24 flex items-center justify-center bg-zinc-50/30 md:bg-white overflow-hidden rounded-[2.5rem] md:rounded-[4rem] md:border border-slate-100">
-      
+
       {/* ── DESKTOP ONLY: High-end Background Pattern ── */}
       <div className="absolute inset-0 opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none hidden md:block" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.03),transparent_70%)] pointer-events-none hidden md:block" />
-      
+
       {/* Ambient Orbs (Desktop) */}
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none hidden md:block" />
       <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-emerald-50/30 rounded-full blur-[100px] pointer-events-none hidden md:block" />
@@ -251,7 +251,7 @@ export const ArchitectureDiagram = () => {
           >
             {/* Subtle gloss effect */}
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-50/50 to-transparent pointer-events-none" />
-            
+
             {/* Mission Control Header */}
             <div className="px-10 py-8 border-b border-slate-50 bg-white relative z-10">
               <div className="flex justify-between items-start mb-2">
@@ -277,7 +277,7 @@ export const ArchitectureDiagram = () => {
                   </div>
                   <span className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.2em]">Validated</span>
                 </div>
-                
+
                 <motion.div animate={{ opacity: phase >= 1 ? 1 : 0.5 }} className="flex items-center justify-between group/line">
                   <div className="flex items-center gap-4">
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-700 group-hover/line:scale-110 border ${phase === 3 ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-red-500/5 border-red-500/10'}`}>

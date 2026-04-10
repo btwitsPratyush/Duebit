@@ -52,9 +52,9 @@ const SecuritySection = () => {
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
-                          className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}
+                          className="text-3xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}
                         >
-                            Security isn't a feature. <br />
+                            Security isn't a feature. <br className="hidden sm:block" />
                             <span className="text-slate-400">It's our foundation.</span>
                         </motion.h2>
                         <motion.p 
@@ -62,7 +62,7 @@ const SecuritySection = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.1 }}
-                          className="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed font-light max-w-xl"
+                          className="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed font-normal max-w-xl"
                         >
                             Every document, action, and follow-up is logged, secured, and audit-ready — automatically.
                         </motion.p>

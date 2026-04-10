@@ -29,7 +29,7 @@ const WhatWeDoSection = () => {
             <span className="text-xs font-bold text-primary tracking-wide uppercase">System Architecture</span>
           </motion.div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-[1.1] italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-[1.1] italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
             How Duebit runs your <br />
             <span className="text-primary italic">firm on autopilot.</span>
           </h2>
@@ -45,7 +45,7 @@ const WhatWeDoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative rounded-[3rem] bg-white border border-slate-200 shadow-2xl p-6 lg:p-16 mb-16 overflow-visible"
+          className="relative rounded-[2rem] sm:rounded-[3rem] bg-white border border-slate-200 shadow-2xl p-4 sm:p-6 lg:p-16 mb-16 overflow-visible"
         >
           <ArchitectureDiagram />
           

@@ -93,29 +93,29 @@ export function SaasHeroSection({
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-20 sm:py-32 lg:py-40">
         <div className="lg:max-w-[85%]">
           {/* Eyebrow */}
           <div
-            className={`mb-10 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`mb-6 sm:mb-10 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            <span className="inline-flex items-center gap-3 text-sm font-mono tracking-[0.2em] text-white/50 uppercase">
-              <span className="w-12 h-px bg-white/20" />
+            <span className="inline-flex items-center gap-3 text-[10px] sm:text-xs md:text-sm font-mono tracking-[0.2em] text-white/50 uppercase">
+              <span className="w-8 sm:w-12 h-px bg-white/20" />
               {eyebrow}
             </span>
           </div>
 
           {/* Main headline */}
-          <div className="mb-14">
+          <div className="mb-10 sm:mb-14">
             <h1
               className={`text-left font-instrument leading-[1.1] tracking-tight transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
             >
-              <div className="flex flex-col gap-4">
-                <span className="text-[80px] md:text-[100px] lg:text-[110px] font-instrument font-bold italic text-[#7f1d1d] leading-none drop-shadow-xl select-none">Stop!</span>
+              <div className="flex flex-col gap-2 sm:gap-4">
+                <span className="text-[54px] xs:text-[64px] sm:text-[80px] md:text-[100px] lg:text-[110px] font-instrument font-bold italic text-[#7f1d1d] leading-none drop-shadow-xl select-none">Stop!</span>
                 {headlineHighlightWords.length > 0 && (
-                  <span className="text-[35px] md:text-[60px] lg:text-[85px] font-normal text-white tracking-tighter leading-none mt-4">
+                  <span className="text-[28px] xs:text-[32px] sm:text-[35px] md:text-[60px] lg:text-[85px] font-normal text-white tracking-tighter leading-[1.1] mt-2 sm:mt-4">
                     <BlurWord
                       word={headlineHighlightWords[wordIndex]}
                       trigger={wordIndex}
@@ -130,7 +130,7 @@ export function SaasHeroSection({
           {/* CTA Button */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <Link href={ctaHref}>
-              <LiquidCtaButton theme="dark" showArrow={false} backgroundColor="#000000" className="mt-4 ml-0">
+              <LiquidCtaButton theme="dark" showArrow={false} backgroundColor="#000000" className="mt-2 sm:mt-4 ml-0">
                 {ctaLabel}
               </LiquidCtaButton>
             </Link>

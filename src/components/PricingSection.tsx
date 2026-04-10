@@ -162,7 +162,7 @@ const PricingSection = () => {
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-bold text-primary tracking-wide uppercase">Start Free • Scale Anytime</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal mb-8 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal mb-8 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
             Invest in your <span className="text-primary">firm’s focus.</span>
           </h2>
 
@@ -312,7 +312,7 @@ const PricingSection = () => {
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.4em]">Personalized Review</span>
                 </motion.div>
 
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                <h3 className="text-3xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
                   Not sure which plan fits?
                 </h3>
                 <p className="text-white/60 mb-12 max-w-xl mx-auto text-lg font-light leading-relaxed">
@@ -341,7 +341,7 @@ const PricingSection = () => {
         {/* FAQs */}
         <div className="max-w-4xl mx-auto mb-20 md:mb-32 px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-foreground italic mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal text-foreground italic mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
               Questions firms usually <span className="text-primary">ask before switching</span>
             </h2>
             <div className="h-1.5 w-16 bg-primary/20 mx-auto rounded-full" />

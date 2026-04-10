@@ -64,7 +64,7 @@ export function Navigation({
                     {/* Left side: Logo */}
                     <div className="flex-1 flex justify-start">
                         <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
-                            <span className={`font-display font-bold transition-colors duration-300 ${textColor} ${scrolled ? "text-[24px]" : "text-[28px]"}`}>
+                            <span className={`font-display font-bold transition-colors duration-300 ${textColor} ${scrolled ? "text-[18px]" : "text-[22px]"}`}>
                                 Duebit
                             </span>
                         </Link>

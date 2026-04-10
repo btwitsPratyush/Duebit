@@ -50,12 +50,12 @@ export function SaasNavigation({
           }`}
       >
         <div
-          className={`flex items-center justify-between transition-all duration-700 px-8 lg:px-10 ${isScrolled ? "h-16" : "h-24"
+          className={`flex items-center justify-between transition-all duration-700 px-4 sm:px-8 lg:px-10 ${isScrolled ? "h-16" : "h-20 sm:h-24"
             }`}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className={`font-display font-bold tracking-tight transition-all duration-700 ${isScrolled ? "text-[24px] text-white" : "text-[28px] text-white"}`}>
+          <Link href="/" className="flex items-center gap-2 group relative z-[60]">
+            <span className={`font-display font-bold tracking-tight transition-all duration-700 ${isScrolled ? "text-[18px] text-white" : "text-[22px] text-white"}`}>
               Duebit
             </span>
           </Link>
@@ -98,7 +98,7 @@ export function SaasNavigation({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors duration-500 text-white`}
+            className={`md:hidden p-2 transition-colors duration-500 text-white relative z-[60]`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -113,9 +113,9 @@ export function SaasNavigation({
 
       {/* Mobile Menu - Full Screen Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-black z-[-1] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isMobileMenuOpen
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 -translate-y-full"
+        className={`md:hidden fixed inset-0 bg-black z-[50] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isMobileMenuOpen
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 -translate-y-full pointer-events-none"
           }`}
       >
         <div className="flex flex-col h-full px-8 pt-32 pb-12">
@@ -126,7 +126,7 @@ export function SaasNavigation({
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-6xl font-display text-white transition-all duration-700 ${isMobileMenuOpen
+                className={`text-4xl font-display text-white transition-all duration-700 ${isMobileMenuOpen
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-8"
                   }`}

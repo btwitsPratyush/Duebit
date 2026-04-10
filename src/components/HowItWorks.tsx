@@ -78,7 +78,7 @@ const HowItWorks = () => {
           >
             From Chaos to <span className="text-primary italic">Autopilot.</span>
           </motion.h2>
-          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-normal">
             Stop chasing clients. Duebit handles the follow-ups, collection, and organization. You just do the work.
           </p>
         </div>
@@ -109,7 +109,7 @@ const HowItWorks = () => {
                 ${step.highlight ? 'text-black' : 'text-[#111]'}`}>
                 {step.title}
               </h3>
-              <p className={`text-sm leading-relaxed font-light transition-colors
+              <p className={`text-sm leading-relaxed font-normal transition-colors
                 ${step.highlight ? 'text-slate-700' : 'text-slate-500'}`}>
                 {step.desc}
               </p>
