@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { Inter, Outfit, Playfair_Display, Pinyon_Script, Instrument_Serif, JetBrains_Mono, Instrument_Sans } from "next/font/google";
+import { GeistPixelLine } from "geist/font/pixel";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
-const pinyon = Pinyon_Script({ 
+const pinyon = Pinyon_Script({
   weight: "400",
-  subsets: ["latin"], 
-  variable: "--font-pinyon" 
+  subsets: ["latin"],
+  variable: "--font-pinyon"
 });
-const instrument = Instrument_Serif({ 
+const instrument = Instrument_Serif({
   weight: "400",
-  subsets: ["latin"], 
-  variable: "--font-instrument" 
+  subsets: ["latin"],
+  variable: "--font-instrument"
 });
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,6 +26,9 @@ const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans"
 });
 
+// No need to initialize GeistPixelLine as it is already an initialized font object from the geist package
+
+
 export const metadata: Metadata = {
   title: "Duebit | Compliance OS for India",
   description: "Automate your corporate compliance with Duebit. The leading compliance operating system designed for Indian businesses.",
@@ -32,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Duebit - The Operating System For Compliance driven firms.",
     description: "The operating system for compliance-led firms. Automate document collection, follow-ups, and client communication workflows.",
-    url: "https://tryduebit.vercel.app",
+    url: "https://duebit.vercel.app",
     siteName: "Duebit",
     images: [
       {
@@ -64,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} ${jetbrains.variable} ${instrumentSans.variable} antialiased`}
+        className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} ${jetbrains.variable} ${instrumentSans.variable} ${GeistPixelLine.variable} antialiased`}
       >
         <Providers>
           {children}

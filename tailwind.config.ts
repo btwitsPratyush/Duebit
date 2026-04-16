@@ -20,6 +20,7 @@ export default {
         mono: ['var(--font-jetbrains)', 'monospace'],
         instrument: ['var(--font-instrument)', 'serif'],
         "instrument-sans": ['var(--font-instrument-sans)', 'sans-serif'],
+        "geist-pixel-line": ['var(--font-geist-pixel-line)', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",

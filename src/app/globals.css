@@ -14,6 +14,13 @@
     /* Optional: Improve rendering for script fonts */
     font-feature-settings: "kern", "liga";
   }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
 }
 
 @layer base {
@@ -536,4 +543,70 @@
 .btn-paper:hover::before {
   opacity: 1;
   filter: blur(0.5px);
+}
+
+@keyframes shiny-sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.btn-metallic {
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-metallic::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
+  );
+  background-size: 300% 300%;
+  animation: prismatic-glow 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.btn-metallic::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-15deg);
+  animation: shiny-sweep 3s infinite;
+  pointer-events: none;
+}
+
+.btn-metallic:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.system-heading {
+  font-family: var(--font-geist-pixel-line), monospace !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 0.95 !important;
 }

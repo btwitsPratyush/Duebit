@@ -32,7 +32,7 @@ const FeaturesGrid = () => {
   }, []);
 
   return (
-    <section id="features" className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
+    <section id="features" className="relative z-10 py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto max-w-6xl px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -48,7 +48,7 @@ const FeaturesGrid = () => {
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-xs font-bold text-primary tracking-wide uppercase">System Capabilities</span>
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-6 system-heading">
                 Built for real <br />
                 compliance workflows.
               </h2>
@@ -182,7 +182,7 @@ const FeaturesGrid = () => {
                   }}
                   transition={{ duration: 0.5 }}
                   className={`px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest flex items-center gap-2.5 transition-all duration-500
-                       ${demoStep >= 1 ? 'bg-slate-900 text-white' : 'bg-primary text-white shadow-xl shadow-primary/10'}`}
+                       ${demoStep >= 1 ? 'bg-primary text-white' : 'bg-primary/90 text-white shadow-xl shadow-primary/10'}`}
                 >
                   {demoStep >= 1 ? <RotateCcw className="w-3.5 h-3.5" /> : <Zap className="w-3.5 h-3.5" />}
                   {demoStep === 0 && "Send Reminder"}

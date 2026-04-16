@@ -57,9 +57,9 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
+    <section id="how-it-works" className="relative z-10 py-16 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto max-w-6xl relative">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,9 +74,9 @@ const HowItWorks = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}
+            className="text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-6 system-heading"
           >
-            From Chaos to <span className="text-primary italic">Autopilot.</span>
+            From Chaos to <span className="text-primary">Autopilot.</span>
           </motion.h2>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-normal">
             Stop chasing clients. Duebit handles the follow-ups, collection, and organization. You just do the work.
@@ -101,12 +101,12 @@ const HowItWorks = () => {
                   : 'border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md'}`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300
-                ${step.highlight ? 'bg-slate-950 text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-[#111] group-hover:text-white'}`}>
+                ${step.highlight ? 'bg-primary text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-primary group-hover:text-white'}`}>
                 <step.icon className="w-5 h-5" />
               </div>
 
               <h3 className={`text-lg font-semibold mb-2 tracking-tight transition-colors
-                ${step.highlight ? 'text-black' : 'text-[#111]'}`}>
+                ${step.highlight ? 'text-slate-900' : 'text-slate-800'}`}>
                 {step.title}
               </h3>
               <p className={`text-sm leading-relaxed font-normal transition-colors

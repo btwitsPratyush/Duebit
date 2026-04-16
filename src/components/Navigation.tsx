@@ -16,7 +16,7 @@ export interface NavigationProps {
 }
 
 export function Navigation({
-    ctaLabel = "Book Demo",
+    ctaLabel = "Get in touch",
     ctaHref = "https://cal.com/duebit-demo/30min",
     onCtaClick,
     dark = false,
@@ -26,9 +26,9 @@ export function Navigation({
 
     const navItems = [
         { name: "Features", href: "/#features" },
-        { name: "Solutions", href: "/#use-cases" },
-        { name: "Docs", href: "/docs" },
-        { name: "Pricing", href: "/pricing" },
+        { name: "How it works", href: "/#detailed-how-it-works" },
+        { name: "Security", href: "/#security" },
+        { name: "Pricing", href: "/#pricing" },
     ];
 
     useEffect(() => {
@@ -43,8 +43,8 @@ export function Navigation({
     }, []);
 
     const isHome = pathname === "/";
-    const textColor = scrolled || dark ? "text-slate-900" : "text-white";
-    const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-white/70 hover:text-white";
+    const textColor = scrolled || dark ? "text-slate-900" : "text-slate-800";
+    const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-slate-500 hover:text-slate-900";
 
     // Clean subtle bottom border
     const borderColor = scrolled || dark ? "border-slate-200" : "border-white/10";
@@ -52,18 +52,16 @@ export function Navigation({
     const bgColor = scrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent";
 
     return (
-        <header className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
-            ? "top-6 left-6 right-6"
-            : "top-0 left-0 right-0"
-            }`}>
-            <nav className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${scrolled
-                ? "bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-lg max-w-[1200px]"
-                : "bg-transparent max-w-[1400px] border-b border-transparent"
+        <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+            <nav className={`w-full transition-all duration-300 border-b ${scrolled
+                ? "bg-white/90 backdrop-blur-md border-slate-200 shadow-sm"
+                : "bg-transparent border-transparent"
                 }`}>
                 <div className="flex items-center justify-between w-full mx-auto px-8 lg:px-10 h-16">
                     {/* Left side: Logo */}
                     <div className="flex-1 flex justify-start">
-                        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
+                        <Link href="/" className="flex items-center gap-3 group shrink-0" aria-label="Duebit home">
+                            <img src="/logo.png" alt="" className={`w-auto object-contain transition-all duration-300 ${scrolled ? "h-8" : "h-10"}`} />
                             <span className={`font-display font-bold transition-colors duration-300 ${textColor} ${scrolled ? "text-[18px]" : "text-[22px]"}`}>
                                 Duebit
                             </span>
@@ -81,7 +79,7 @@ export function Navigation({
 
                         <Button
                             asChild
-                            className="h-10 px-8 rounded-full border border-white/40 bg-transparent text-white hover:bg-white/10 shadow-lg text-[13px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                            className={`h-10 px-8 rounded-full font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] bg-primary text-white hover:bg-primary/90 shadow-md`}
                         >
                             <Link href={ctaHref || "https://cal.com/duebit-demo/30min"}>
                                 {ctaLabel}

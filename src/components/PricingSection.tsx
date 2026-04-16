@@ -145,7 +145,7 @@ const PricingSection = () => {
   const [billingCycle, setBillingCycle] = React.useState<"monthly" | "annual">("monthly");
 
   return (
-    <section id="pricing" className="relative z-10 py-20 md:py-[120px] bg-white text-foreground font-sans overflow-hidden">
+    <section id="pricing" className="relative py-16 md:py-24 bg-background overflow-hidden border-t border-border">
       {/* Background Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -162,7 +162,7 @@ const PricingSection = () => {
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-bold text-primary tracking-wide uppercase">Start Free • Scale Anytime</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal mb-8 leading-tight text-foreground italic" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-8 leading-tight text-foreground system-heading">
             Invest in your <span className="text-primary">firm’s focus.</span>
           </h2>
 
@@ -235,7 +235,7 @@ const PricingSection = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
-                    className="text-5xl font-bold text-foreground tracking-tighter"
+                    className="text-4xl text-foreground tracking-tighter system-heading"
                   >
                     {billingCycle === "monthly" ? plan.priceMonthly : plan.priceAnnual}
                   </motion.span>
@@ -341,8 +341,8 @@ const PricingSection = () => {
         {/* FAQs */}
         <div className="max-w-4xl mx-auto mb-20 md:mb-32 px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal text-foreground italic mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              Questions firms usually <span className="text-primary">ask before switching</span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl text-foreground mb-4 system-heading">
+              FAQ
             </h2>
             <div className="h-1.5 w-16 bg-primary/20 mx-auto rounded-full" />
           </div>

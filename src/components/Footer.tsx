@@ -5,10 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 overflow-hidden footer-and-cta">
+    <footer className="relative z-10 overflow-hidden footer-and-cta mt-12 md:mt-24">
       {/* Fancy red section - brand classy red */}
       {/* Fancy red section - brand classy red */}
-      <div className="relative border-t border-white/10 overflow-hidden bg-[#1a0505]">
+      <div className="relative border-t border-white/10 overflow-hidden bg-[#1a0505] rounded-t-[50px] md:rounded-t-[100px]">
         {/* Deep maroon-toned dark gradient base */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a0505] via-[#2d0a0a] to-[#1a0505]" />
 

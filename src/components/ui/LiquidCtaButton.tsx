@@ -13,6 +13,7 @@ export type LiquidCtaButtonProps = {
   opacity?: number;
   showArrow?: boolean;
   backgroundColor?: string;
+  size?: "sm" | "md" | "lg";
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function LiquidCtaButton({
@@ -25,12 +26,19 @@ export function LiquidCtaButton({
   opacity = 1,
   showArrow = true,
   backgroundColor,
+  size = "md",
   type = "button",
   ...props
 }: LiquidCtaButtonProps) {
   const isDark = theme === "dark";
-  const maroonBrown = "#4B0000";
+  const maroonBrown = "#811d1e";
   const resolvedBg = backgroundColor ?? (isDark ? maroonBrown : "#ffffff");
+
+  const sizeClasses = {
+    sm: "h-11 px-6 text-sm",
+    md: "h-14 px-9 text-base",
+    lg: "h-16 px-10 text-lg",
+  };
 
   return (
     <LiquidMetalBorder
@@ -47,7 +55,8 @@ export function LiquidCtaButton({
       <button
         type={type}
         className={cn(
-          "group inline-flex items-center justify-center gap-3 rounded-full px-10 h-16 text-lg font-medium transition-transform active:scale-[0.99]",
+          "group inline-flex items-center justify-center gap-3 rounded-full font-medium transition-transform active:scale-[0.99]",
+          sizeClasses[size],
           isDark ? "bg-transparent text-white" : "bg-transparent text-black"
         )}
         {...props}

@@ -56,7 +56,7 @@ const ProductInAction = () => {
   }, []);
 
   return (
-    <section id="product-in-action" className="relative z-10 py-20 md:py-[120px] bg-white overflow-hidden">
+    <section id="product-in-action" className="relative z-10 py-16 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
@@ -76,7 +76,7 @@ const ProductInAction = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-6xl font-normal text-slate-900 mb-6 leading-tight italic" style={{ fontFamily: "'Instrument Serif', serif" }}
+              className="text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-6 system-heading"
             >
               How Duebit works
             </motion.h2>
