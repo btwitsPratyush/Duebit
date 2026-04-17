@@ -26,7 +26,7 @@ const Node = ({ icon: Icon, label, active, pulse }: { icon: any; label: string; 
     animate={{ opacity: active ? 1 : 0.4, y: active ? 0 : 5 }}
     className="flex flex-col items-center gap-2"
   >
-    <div className={`w-10 h-10 md:w-16 md:h-16 rounded-[14px] md:rounded-[1.25rem] flex items-center justify-center transition-all duration-500 relative
+    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-[14px] md:rounded-[1.25rem] flex items-center justify-center transition-all duration-500 relative
       ${active
         ? 'bg-white/10 shadow-[0_0_30px_-5px_rgba(239,68,68,0.3)] border-white/20'
         : 'bg-white/5 border-white/5'} border-2 md:border relative overflow-hidden group`}>
@@ -44,7 +44,7 @@ const Node = ({ icon: Icon, label, active, pulse }: { icon: any; label: string; 
         />
       )}
     </div>
-    <span className={`text-[9px] md:text-[11px] font-bold md:font-black uppercase tracking-wider md:tracking-[0.2em] text-center max-w-[80px] md:max-w-[120px] leading-tight transition-colors duration-500 ${active ? 'text-white/90' : 'text-white/30'}`}>
+    <span className={`text-[10px] md:text-[11px] font-bold md:font-black uppercase tracking-wider md:tracking-[0.2em] text-center max-w-[80px] md:max-w-[120px] leading-tight transition-colors duration-500 ${active ? 'text-white' : 'text-white/20'}`}>
       {label}
     </span>
   </motion.div>
@@ -96,11 +96,11 @@ const FlowArrow = ({ active }: { active: boolean }) => (
     animate={{ opacity: active ? 1 : 0.2 }}
     className="flex items-center justify-center my-2"
   >
-    <svg width="20" height="24" viewBox="0 0 16 20" fill="none">
+    <svg width="24" height="28" viewBox="0 0 16 20" fill="none">
       <motion.path
-        d="M8 0 L8 14 M3 9 L8 15 L13 9"
+        d="M 8 0 L 8 16 M 2 10 L 8 17 L 14 10"
         stroke={active ? COLORS.active : COLORS.border}
-        strokeWidth="2"
+        strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
         animate={{ opacity: active ? 1 : 0.4 }}
@@ -120,7 +120,7 @@ export const ArchitectureDiagram = () => {
   }, []);
 
   return (
-    <div className="w-full relative px-4 md:px-12 py-12 md:py-24 flex items-center justify-center bg-[#0A0A0A] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] border border-white/10 shadow-2xl">
+    <div className="w-full relative px-2 md:px-12 py-10 md:py-24 flex items-center justify-center bg-[#0A0A0A] overflow-hidden rounded-[2rem] md:rounded-[4rem] border border-white/10 shadow-2xl">
 
       {/* ── DESKTOP ONLY: High-end Background Pattern ── */}
       <div className="absolute inset-0 opacity-[0.2] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
@@ -139,7 +139,7 @@ export const ArchitectureDiagram = () => {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* ── MOBILE LAYOUT: Vertical Stacked Flow ── */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="md:hidden flex flex-col items-center gap-0 w-full max-w-sm z-10 px-1">
+      <div className="md:hidden flex flex-col items-center gap-4 w-full max-w-[400px] z-10 px-1">
         <div className="grid grid-cols-3 gap-3 w-full mb-4">
           <Node icon={FileUp} label="CSV Upload" active={phase >= 0} />
           <Node icon={LineChart} label="Track Clients" active={phase >= 0} pulse={phase === 0} />
@@ -165,14 +165,14 @@ export const ArchitectureDiagram = () => {
                 {phase === 3 ? 'Resolved' : 'Bot Active'}
               </div>
             </div>
-            <p className="text-[9px] text-white/40 font-medium">Deadline: Upcoming</p>
+            <p className="text-[10px] text-white/30 font-medium">Deadline: Upcoming</p>
           </div>
 
-          <div className="p-5 space-y-4 relative z-10">
+          <div className="p-4 space-y-4 relative z-10">
             <div className="flex items-center justify-between border-b border-white/5 pb-3">
                <div className="flex items-center gap-2">
-                 <Bot className={`w-3.5 h-3.5 ${phase >= 1 ? 'text-primary' : 'text-white/20'}`} />
-                 <span className="text-[10px] font-medium text-white/70">Duebit AI Tracker</span>
+                 <Bot className={`w-4 h-4 ${phase >= 1 ? 'text-primary' : 'text-white/20'}`} />
+                 <span className="text-[11px] font-medium text-white/70">Duebit AI Tracker</span>
                </div>
                <span className={`text-[8px] font-bold uppercase tracking-widest ${phase >= 1 ? 'text-primary animate-pulse' : 'text-white/20'}`}>
                  {phase === 3 ? 'Sleeping' : 'Monitoring'}
