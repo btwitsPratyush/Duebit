@@ -60,6 +60,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScrolling from "@/components/SmoothScrolling";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -71,7 +73,9 @@ export default function RootLayout({
         className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} ${jetbrains.variable} ${instrumentSans.variable} ${GeistPixelLine.variable} antialiased`}
       >
         <Providers>
-          {children}
+          <SmoothScrolling>
+            {children}
+          </SmoothScrolling>
         </Providers>
       </body>
     </html>

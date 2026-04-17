@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   CheckCircle2,
   Clock,
@@ -9,7 +9,7 @@ import {
   MoreVertical,
   AlertCircle
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const features = [
   "Jobs and checklists are created automatically",
@@ -21,18 +21,27 @@ const features = [
 ];
 
 const FeaturesGrid = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
   const [demoStep, setDemoStep] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Demo loop: 0 -> 1 (send) -> 2 (received) -> reset
   useEffect(() => {
+    if (!isInView || !isMounted) return;
+    
     const timer = setInterval(() => {
       setDemoStep((prev) => (prev + 1) % 4);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isInView, isMounted]);
 
   return (
-    <section id="features" className="relative z-10 py-16 md:py-24 bg-white overflow-hidden">
+    <section ref={sectionRef} id="features" className="relative z-10 py-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto max-w-6xl px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
