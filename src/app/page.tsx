@@ -1,15 +1,15 @@
 "use client";
 
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { AsciiHero } from "@/components/saas-hero/AsciiHero";
-import ProductInAction from "@/components/ProductInAction";
-import HowItWorks from "@/components/HowItWorks";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import UseCases from "@/components/UseCases";
-import SecuritySection from "@/components/SecuritySection";
-import PricingSection from "@/components/PricingSection";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
-import Footer from "@/components/Footer";
+import ProductInAction from "@/components/product-demo/ProductInAction";
+import HowItWorks from "@/components/how-it-works/HowItWorks";
+import FeaturesGrid from "@/components/features/FeaturesGrid";
+import UseCases from "@/components/use-cases/UseCases";
+import SecuritySection from "@/components/security/SecuritySection";
+import PricingSection from "@/components/pricing/PricingSection";
+import WhatWeDoSection from "@/components/features/WhatWeDoSection";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (

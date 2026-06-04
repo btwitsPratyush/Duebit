@@ -1,4 +1,4 @@
-import { ArchitectureDiagram } from "./ArchitectureDiagram";
+import { ArchitectureDiagram } from "../architecture/ArchitectureDiagram";
 import { motion } from "framer-motion";
 
 const WhatWeDoSection = () => {

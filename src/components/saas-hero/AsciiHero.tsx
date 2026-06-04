@@ -46,7 +46,7 @@ export function AsciiHero() {
             }`}
         >
           <a href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer">
-            <LiquidCtaButton theme="dark" showArrow={false} size="md">
+            <LiquidCtaButton theme="dark" showArrow={false} size="md" backgroundColor="#811d1d">
               Book a demo
             </LiquidCtaButton>
           </a>

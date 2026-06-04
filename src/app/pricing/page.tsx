@@ -1,8 +1,8 @@
 "use client";
 
-import { Navigation } from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import PricingSection from "@/components/PricingSection";
+import { Navigation } from "@/components/navigation/Navigation";
+import Footer from "@/components/footer/Footer";
+import PricingSection from "@/components/pricing/PricingSection";
 
 export default function PricingPage() {
   return (

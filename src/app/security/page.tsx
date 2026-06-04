@@ -1,8 +1,8 @@
 "use client";
 
-import { Navigation } from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import SecuritySection from "@/components/SecuritySection";
+import { Navigation } from "@/components/navigation/Navigation";
+import Footer from "@/components/footer/Footer";
+import SecuritySection from "@/components/security/SecuritySection";
 
 export default function SecurityPage() {
   return (

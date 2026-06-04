@@ -145,7 +145,7 @@ const PricingSection = () => {
   const [billingCycle, setBillingCycle] = React.useState<"monthly" | "annual">("monthly");
 
   return (
-    <section id="pricing" className="relative py-16 md:py-24 bg-background overflow-hidden border-t border-border">
+    <section id="pricing" className="relative py-16 md:py-24 bg-[#f3f4f6] overflow-hidden border-t border-slate-200">
       {/* Background Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 

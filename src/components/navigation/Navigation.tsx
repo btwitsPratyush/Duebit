@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Logo from "@/components/Logo";
+import Logo from "./Logo";
 
 export interface NavigationProps {
     ctaLabel?: string;
@@ -45,6 +45,7 @@ export function Navigation({
     const isHome = pathname === "/";
     const textColor = scrolled || dark ? "text-slate-900" : "text-slate-800";
     const linkColor = scrolled || dark ? "text-slate-600 hover:text-slate-900" : "text-slate-500 hover:text-slate-900";
+    const loginUrl = process.env.NEXT_PUBLIC_APP_LOGIN_URL || "http://localhost:5173/login";
 
     // Clean subtle bottom border
     const borderColor = scrolled || dark ? "border-slate-200" : "border-white/10";
@@ -57,10 +58,10 @@ export function Navigation({
                 ? "bg-white/90 backdrop-blur-md border-slate-200 shadow-sm"
                 : "bg-transparent border-transparent"
                 }`}>
-                <div className="flex items-center justify-between w-full mx-auto px-8 lg:px-10 h-16">
+                <div className="flex items-center justify-between w-full mx-auto px-2 md:px-6 h-16">
                     {/* Left side: Logo */}
                     <div className="flex-1 flex justify-start">
-                        <Link href="/" className="flex items-center gap-3 group shrink-0" aria-label="Duebit home">
+                        <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Duebit home">
                             <img src="/logo.png" alt="" className={`w-auto object-contain transition-all duration-300 ${scrolled ? "h-8" : "h-10"}`} />
                             <span className={`font-display font-bold transition-colors duration-300 ${textColor} ${scrolled ? "text-[18px]" : "text-[22px]"} hidden md:block`}>
                                 Duebit
@@ -71,7 +72,7 @@ export function Navigation({
                     {/* Right side: Actions */}
                     <div className="flex-1 flex items-center justify-end gap-5">
                         <Link
-                            href="/login"
+                            href={loginUrl}
                             className={`text-[13px] font-medium transition-colors ${linkColor}`}
                         >
                             Login
@@ -79,7 +80,7 @@ export function Navigation({
 
                         <Button
                             asChild
-                            className={`h-10 px-8 rounded-full font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] bg-primary text-white hover:bg-primary/90 shadow-md`}
+                            className={`h-10 px-6 rounded-full font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] bg-primary text-white hover:bg-primary/90 shadow-md`}
                         >
                             <Link href={ctaHref || "https://cal.com/duebit-demo/30min"}>
                                 {ctaLabel}

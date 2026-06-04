@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Github } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -84,7 +84,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 pt-20 md:pt-[120px] pb-16 relative z-10">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
             {/* Brand Column - duebit jahan tha wahi */}
-            <div className="md:col-span-5 lg:col-span-6">
+            <div className="md:col-span-5 lg:col-span-4">
               <Link href="/" className="inline-flex items-center gap-3 mb-8 group transition-opacity">
                 <div className="bg-white rounded-2xl p-2 shadow-xl shadow-black/30 border border-white/5 transition-transform duration-500 group-hover:scale-105">
                   <img src="/logo.png" alt="Duebit" className="h-10 w-auto object-contain" />
@@ -100,47 +100,53 @@ const Footer = () => {
                 Automating compliance workflows.
               </h2>
               <p className="text-white/70 text-base max-w-sm leading-relaxed">
-                Built for the next generation of Chartered Accountants.
+                Compliance. Automated.
               </p>
             </div>
 
             {/* Links */}
-            <div className="md:col-span-7 lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-10">
+            <div className="md:col-span-7 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
               <div>
                 <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Product</h4>
                 <ul className="space-y-3">
                   <li><a href="#features" className="text-white/70 hover:text-white transition-colors text-sm">Features</a></li>
                   <li><a href="#how-it-works" className="text-white/70 hover:text-white transition-colors text-sm">How it Works</a></li>
+                  <li><a href="#use-cases" className="text-white/70 hover:text-white transition-colors text-sm">Use Cases</a></li>
+                  <li><a href="#integrations" className="text-white/70 hover:text-white transition-colors text-sm">Integrations</a></li>
                   <li><Link href="/pricing" className="text-white/70 hover:text-white transition-colors text-sm">Pricing</Link></li>
-                  <li><a href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors text-sm">Book Demo</a></li>
+                  <li><a href="https://cal.com/duebit-demo/30min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors text-sm">Get in touch</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">AI Platform</h4>
+                <ul className="space-y-3">
+                  <li><a href="#ai" className="text-white/70 hover:text-white transition-colors text-sm">Duebit AI</a></li>
+                  <li><a href="#voice" className="text-white/70 hover:text-white transition-colors text-sm">Voice Commands</a></li>
+                  <li><a href="#automations" className="text-white/70 hover:text-white transition-colors text-sm">Automations</a></li>
+                  <li><a href="#workflow" className="text-white/70 hover:text-white transition-colors text-sm">Workflow Engine</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Company</h4>
                 <ul className="space-y-3">
-                  <li><a href="#" className="text-white/70 hover:text-white transition-colors text-sm">About</a></li>
-                  <li><a href="#" className="text-white/70 hover:text-white transition-colors text-sm">Careers</a></li>
-                  <li><a href="#" className="text-white/70 hover:text-white transition-colors text-sm">Privacy</a></li>
-                  <li><a href="#" className="text-white/70 hover:text-white transition-colors text-sm">Terms</a></li>
+                  <li><a href="#about" className="text-white/70 hover:text-white transition-colors text-sm">About</a></li>
+                  <li><a href="#careers" className="text-white/70 hover:text-white transition-colors text-sm">Careers</a></li>
+                  <li><a href="mailto:hello@duebit.io" className="text-white/70 hover:text-white transition-colors text-sm">Contact</a></li>
+                  <li><a href="#privacy" className="text-white/70 hover:text-white transition-colors text-sm">Privacy</a></li>
+                  <li><a href="#terms" className="text-white/70 hover:text-white transition-colors text-sm">Terms</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Trust</h4>
+                <ul className="space-y-3">
+                  <li><Link href="/security" className="text-white/70 hover:text-white transition-colors text-sm">Security</Link></li>
+                  <li><a href="#compliance" className="text-white/70 hover:text-white transition-colors text-sm">Compliance</a></li>
+                  <li><a href="#data-protection" className="text-white/70 hover:text-white transition-colors text-sm">Data Protection</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Socials</h4>
                 <ul className="space-y-3">
-                  <li>
-                    <a href="https://x.com/duebitHQ" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                      <span>X</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/company/tryduebit/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
-                      <Linkedin className="w-4 h-4" />
-                      <span>LinkedIn</span>
-                    </a>
-                  </li>
                   <li>
                     <a href="https://github.com/Duebit" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
                       <Github className="w-4 h-4" />

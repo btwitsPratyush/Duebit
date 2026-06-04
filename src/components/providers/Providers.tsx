@@ -1,8 +1,8 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "./theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import SmoothScrolling from "@/components/SmoothScrolling";
+import SmoothScrolling from "./SmoothScrolling";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
