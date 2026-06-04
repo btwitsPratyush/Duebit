@@ -1,4 +1,3 @@
-import { Github } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -105,7 +104,7 @@ const Footer = () => {
             </div>
 
             {/* Links */}
-            <div className="md:col-span-7 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+            <div className="md:col-span-7 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
               <div>
                 <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Product</h4>
                 <ul className="space-y-3">
@@ -142,17 +141,6 @@ const Footer = () => {
                   <li><Link href="/security" className="text-white/70 hover:text-white transition-colors text-sm">Security</Link></li>
                   <li><a href="#compliance" className="text-white/70 hover:text-white transition-colors text-sm">Compliance</a></li>
                   <li><a href="#data-protection" className="text-white/70 hover:text-white transition-colors text-sm">Data Protection</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-xs font-semibold text-white mb-5 uppercase tracking-widest">Socials</h4>
-                <ul className="space-y-3">
-                  <li>
-                    <a href="https://github.com/Duebit" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
-                      <Github className="w-4 h-4" />
-                      <span>GitHub</span>
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
