@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit, Playfair_Display, Pinyon_Script, Instrument_Serif, JetBrains_Mono, Instrument_Sans } from "next/font/google";
 import { GeistPixelLine } from "geist/font/pixel";
 import "./globals.css";
-import Providers from "@/components/Providers";
+import Providers from "@/components/providers/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
 };
 
-import SmoothScrolling from "@/components/SmoothScrolling";
+
 
 export default function RootLayout({
   children,
@@ -73,9 +73,7 @@ export default function RootLayout({
         className={`${inter.variable} ${outfit.variable} ${playfair.variable} ${pinyon.variable} ${instrument.variable} ${jetbrains.variable} ${instrumentSans.variable} ${GeistPixelLine.variable} antialiased`}
       >
         <Providers>
-          <SmoothScrolling>
-            {children}
-          </SmoothScrolling>
+          {children}
         </Providers>
       </body>
     </html>

@@ -1,9 +1,9 @@
 "use client";
 
-import { Navigation } from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import HowItWorks from "@/components/HowItWorks";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
+import { Navigation } from "@/components/navigation/Navigation";
+import Footer from "@/components/footer/Footer";
+import HowItWorks from "@/components/how-it-works/HowItWorks";
+import WhatWeDoSection from "@/components/features/WhatWeDoSection";
 
 export default function HowItWorksPage() {
   return (

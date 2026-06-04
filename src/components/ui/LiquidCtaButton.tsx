@@ -31,8 +31,7 @@ export function LiquidCtaButton({
   ...props
 }: LiquidCtaButtonProps) {
   const isDark = theme === "dark";
-  const maroonBrown = "#811d1e";
-  const resolvedBg = backgroundColor ?? (isDark ? maroonBrown : "#ffffff");
+  const resolvedBg = backgroundColor ?? (isDark ? "#0B0B0B" : "#ffffff");
 
   const sizeClasses = {
     sm: "h-11 px-6 text-sm",
